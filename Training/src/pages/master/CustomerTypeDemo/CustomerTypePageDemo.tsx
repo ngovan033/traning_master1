@@ -11,6 +11,7 @@ import { useI18n } from "@/i18n/useI18n";
 import { FORMAT_NUMBER } from "@/packages/common/Validation_Rules";
 import { useSetAtom } from "jotai";
 import { showErrorAtom } from "@/packages/store";
+import { GridCustomerToolBarItem } from "@/packages/components/gridview-standard/grid-custom-toolbar";
 
 export const CustomerTypePageDemo = () => {
   const popupRef = useRef();
@@ -44,6 +45,9 @@ export const CustomerTypePageDemo = () => {
     if (resp?.isSuccess) {
       return resp;
     }
+  };
+  const onRefetchData = async (number?: number) => {
+    gridRef.current?.refetchData(number);
   };
 
   const columns: ColumnOptions[] = [
@@ -93,13 +97,75 @@ export const CustomerTypePageDemo = () => {
       },
     },
   ];
+const handleDelete = async (listSelected: any[]) => {
+    if (listSelected.length == 0) {
+      showDialog({
+        title: "Thông báo",
+        message: "Vui lòng chọn dữ liệu để xóa!",
+      });
 
+      return;
+    }
+
+    await Promise.all(
+      listSelected.map((item) => {
+        return api.Ser_MST_CustomerType_Delete(item.CusTypeID);
+      })
+    ).then((responses) => {
+      const allSuccess = responses.every((response) => response.isSuccess);
+
+      if (allSuccess) {
+        toast.success("Xóa thành công!");
+      } else {
+        const firstError = responses.find((response) => !response.isSuccess);
+        showError({
+          message: t(firstError!._strErrCode),
+          _strErrCode: firstError!._strErrCode,
+          _strTId: firstError!._strTId,
+          _strAppTId: firstError!._strAppTId,
+          _objTTime: firstError!._objTTime,
+          _strType: firstError!._strType,
+          _dicDebug: firstError!._dicDebug,
+          _dicExcs: firstError!._dicExcs,
+        });
+      }
+    });
+    gridRef.current?.refetchData();
+  };
+
+  const toolbarItems: GridCustomerToolBarItem[] = [
+    {
+      text: "Xóa",
+      onClick: async (e: any, ref: any) => {
+        if (ref) {
+          const selectedData =
+            ref?.current?._instance?.getSelectedRowsData() ?? [];
+
+          await handleDelete(selectedData);
+        }
+      },
+      shouldShow: (ref: any) => {
+        return true;
+      },
+    },
+  ];
   const handleDetail = (data) => {
     popupRef.current?.showPopup({
       type: "detail",
       data: data,
     });
   };
+  const handleAdd = () => {
+    popupRef.current?.showPopup({
+      type: "create",
+      data: {
+        CusPersonType: "1",
+        CusTypeName: "",
+        CusFactor: "",
+        CusTypeID: "",
+      },
+    });
+  };  
   const handleSearch = (keyword: string) => {
     searchCondition.current.CusTypeName = keyword;
     gridRef?.current?.refetchData();
@@ -114,6 +180,10 @@ export const CustomerTypePageDemo = () => {
           title="Quản lý loại khách hàng"
           handleSearch={handleSearch}
           showSearch={true}
+          buttonOptions={{
+            showButtonAdd: true,
+            onClickButtonAdd: handleAdd,
+          }}
         ></BreadcrumbSearch>
 
       </AdminContentLayout.Slot>
@@ -124,11 +194,20 @@ export const CustomerTypePageDemo = () => {
           dataSource={[]} // cars
           columns={columns}
           allowSelection={false}
+          onRowDeleteBtnClick={handleDelete}
+          customToolbarItems={toolbarItems}
           storeKey={"ser-mst-customertype-management-columns"}
           fetchData={fetchData}
+          keyExpr={"CusTypeID"}
+          onRowDblClick={(e) => handleDetail(e.data)}
           autoFetchData={true}
+          toolbarItems={[]}
+          
         />
-
+        <PopupCustomerType
+          ref={popupRef}
+          onRefetchData={onRefetchData}
+        ></PopupCustomerType>
       </AdminContentLayout.Slot>
     </AdminContentLayout>
   );
