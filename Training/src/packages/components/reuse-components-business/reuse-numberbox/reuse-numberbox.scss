@@ -1,0 +1,12 @@
+.config_my_numberbox.bgWarning {
+    .dx-texteditor-container { 
+        background-color: red;
+        border: none;
+    } 
+}
+
+.config_my_numberbox {
+    input[aria-readonly="true"] {
+        background-color: #e9ebf3 !important;
+    }
+}

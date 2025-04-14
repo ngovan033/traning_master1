@@ -1,0 +1,10 @@
+.select-drop-grid__popup > input {
+  background-color: #f5f5f5 !important;
+}
+
+.select-drop-datagrid .dx-fieldset {
+  margin: 0 12px;
+}
+.select-drop-datagrid .dx-overlay-content {
+  width: 500px !important;
+}/*# sourceMappingURL=SelectDrop.css.map */

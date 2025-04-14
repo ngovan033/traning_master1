@@ -1,0 +1,74 @@
+.popup-from-grid {
+  .dx-popup-normal {
+    min-height: 180px !important;
+  }
+
+  position: relative;
+
+  .dx-popup-draggable {
+    .dx-popup-content {
+      overflow-x: hidden;
+      // padding-bottom: 0 !important;
+      // position: relative;
+      // top: -20px;
+    }
+
+    .dx-popup-bottom {
+      .dx-toolbar-items-container {
+        // height: 15px !important;
+      }
+
+      .dx-toolbar-after {
+        // top: 5px !important;
+      }
+    }
+  }
+
+  .hook-form-textarea .dx-textarea {
+    height: 56px;
+  }
+
+  label {
+    height: 24px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+  }
+
+  .popup-footer {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -20px;
+      height: 0.5px;
+      background-color: #dfdfdf;
+      width: calc(100% + 40px);
+    }
+  }
+
+  .dx-popup-title {
+    .dx-state-hover {
+      background-color: transparent !important;
+    }
+  }
+
+  .popup-1-col {
+    .dx-invalid-message > .dx-overlay-content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px !important;
+      width: auto;
+    }
+
+    .dx-invalid-message:hover > .dx-overlay-content {
+      width: 400px !important;
+      text-overflow: unset;
+      overflow: unset;
+      transition: linear 0.5s all;
+    }
+  }
+}

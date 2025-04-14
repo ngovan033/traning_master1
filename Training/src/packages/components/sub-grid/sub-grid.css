@@ -1,0 +1,19 @@
+.sub-grid .dx-datagrid {
+  background-color: #ffffff;
+}
+.sub-grid .dx-datagrid .dx-datagrid-header-panel {
+  padding: 0;
+}
+.sub-grid .dx-datagrid td[role=gridcell] {
+  font-size: 13px !important;
+}
+.sub-grid .dx-datagrid .dx-datagrid-rowsview .dx-row td[role=gridcell] {
+  padding: 12px 12px;
+}
+.sub-grid .dx-toolbar {
+  padding: 5px;
+  background-color: #ffffff;
+}
+.sub-grid .dx-toolbar .dx-toolbar-after {
+  padding-right: 20px;
+}/*# sourceMappingURL=sub-grid.css.map */

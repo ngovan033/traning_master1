@@ -1,0 +1,26 @@
+.text-field {
+  .dx-texteditor-input {
+    background-color: #ffff !important;
+    color: #0e223d !important;
+    font-weight: 500 !important;
+  }
+  .dx-texteditor-input [aria-readonly="true"] {
+    background-color: #f5f5f5 !important;
+    color: #0e223d !important;
+    font-weight: 600 !important;
+  }
+}
+
+.dx-root-simple-item {
+  .dms-form-field {
+    &.dx-field-item {
+      padding-bottom: 0;
+    }
+  }
+  .dx-field-item-label {
+    &.dx-field-item-label-location-top {
+      padding-bottom: 6px;
+    }
+  }
+  margin-bottom: 0;
+}

@@ -1,0 +1,38 @@
+.error-popup {
+  .dx-popup-bottom {
+    .dx-toolbar-button {
+      margin: 0;
+      padding: 0;
+
+      .dx-button {
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+
+  &.short {
+    .dx-scrollview-content {
+      padding-top: 15px !important;
+    }
+  }
+}
+
+.error-title {
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #0e223d;
+}
+.error-body {
+  overflow: scroll;
+}
+.error__main {
+  margin: 0 10px;
+}
+.error__detail {
+  padding: 10px;
+  color: #5f7d95;
+}

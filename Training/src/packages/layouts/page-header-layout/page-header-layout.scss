@@ -1,0 +1,29 @@
+.page-header {
+  height: 44px;
+  .dx-button-content {
+    .dx-icon-menu {
+      &:before {
+        color: #00703c;
+      }
+    }
+  }
+}
+
+@media (max-width: 1238px) {
+  .box3 {
+    display: none;
+  }
+}
+@media (max-width: 1187px) {
+  .box2 {
+    margin-left: 20px !important;
+  }
+}
+@media (max-width: 1000px) {
+  .box2 {
+    width: 70% !important;
+  }
+  .box1 {
+    width: 15% !important;
+  }
+}
