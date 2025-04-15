@@ -1,0 +1,42 @@
+import { CustomerTypePage } from "@/pages/master/CustomerType/CustomerTypePage";
+import { Ser_CavityPage } from "@/pages/master/SerCavity/list/Ser_Cavity";
+import { SerCavityPageDemo } from "@/pages/master/SerCavityDemo/SerCavityPageDemo";
+import { RouteItem } from "@/types";
+
+export const adminRoutes: RouteItem[] = [
+  {
+    key: "admin",
+    path: "admin",
+    mainMenuTitle: "admin",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <></>,
+  },
+  {
+    key: "CustomerType",
+    path: "admin/CustomerType",
+    subMenuTitle: "CustomerType",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <CustomerTypePage />,
+    view: "DL",
+  },
+  {
+    key: "SerCavity",
+    path: "admin/SerCavity",
+    subMenuTitle: "SerCavity",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Ser_CavityPage />,
+    view: "DL",
+  },
+  {
+    key: "SerCavityDemo",
+    path: "admin/SerCavityDemo",
+    subMenuTitle: "SerCavityDemo",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <SerCavityPageDemo />,
+    view: "DL",
+  },
+];

@@ -1,0 +1,88 @@
+/* header filter */
+.dx-header-filter-menu .dx-overlay-content .dx-popup-content {
+  height: auto;
+  border-bottom: none;
+  padding: 10px;
+}
+.dx-header-filter-menu .dx-popup-bottom {
+  border-top: 0.5px solid #dfdfdf;
+}
+.dx-header-filter-menu.dx-popup-wrapper .dx-list-search .dx-texteditor-input-container .dx-placeholder:before {
+  padding: 0 0 0 32px;
+}
+
+.GridRight .dx-header-filter,
+.GridLeft .dx-header-filter {
+  padding-left: 210px !important;
+}
+
+.dx-header-filter-menu .dx-popup-bottom.dx-toolbar .dx-toolbar-after {
+  flex-direction: inherit !important;
+}
+
+.grid-view-customize .dx-datagrid td[role=gridcell] {
+  font-size: 13px !important;
+}
+
+
+.ToolbarButton {
+  background-color: #00703c !important;
+}
+
+.ToolbarButton:hover {
+  background-color: #09492b !important;
+}
+
+.base-gridview #gridContainer .dx-popup-content {
+  padding: 4px;
+}
+.base-gridview .dx-datagrid {
+  background: #ffffff;
+}
+.base-gridview .dx-datagrid td[role=gridcell] {
+  font-size: 13px !important;
+}
+.base-gridview .dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row > td:not(.dx-validation-pending):not(.dx-datagrid-select-all).dx-command-select {
+  background-color: #ffffff;
+}
+.base-gridview .dx-datagrid .dx-datagrid-header-panel {
+  background: #ffffff;
+}
+.base-gridview .dx-datagrid .dx-datagrid-header-panel .dx-toolbar-after .dx-item-content {
+  display: flex;
+  align-items: center;
+}
+.base-gridview .dx-datagrid .dx-datagrid-header-panel .dx-toolbar-after .dx-toolbar {
+  background: #ffffff;
+}
+.base-gridview .dx-datagrid .dx-datagrid-header-panel .dx-datagrid-table .dx-col-fixed {
+  background: #ffffff;
+}
+.base-gridview .dx-datagrid .dx-datagrid-header-panel .dx-datagrid-table .dx-column-indicators {
+  margin-left: 10px !important;
+  float: right !important;
+}
+.base-gridview .dx-datagrid .dx-datagrid-rowsview .dx-row td[role=gridcell] {
+  padding: 12px 12px;
+}
+.base-gridview .TextLeftSLA[role=gridcell] {
+  text-align: right !important;
+}
+.base-gridview .TextLeftGrid {
+  text-align: right !important;
+}
+.base-gridview .toggle__search {
+  padding: 9px;
+  color: #5f7d95;
+}
+.base-gridview .toggle__search:hover {
+  background-color: #eaf9f2 !important;
+  color: #00703c;
+}
+.base-gridview .dx-datagrid-header-panel .dx-toolbar .dx-toolbar-after .dx-toolbar-item:nth-last-child(2) {
+  margin-right: 60px;
+}
+.base-gridview .dx-datagrid-header-panel .dx-toolbar .dx-toolbar-after .dx-toolbar-item:last-child .dx-toolbar-item-content {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=base-gridview.css.map */

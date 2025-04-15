@@ -1,0 +1,39 @@
+.dms-business-grid {
+  background: #ffffff;
+}
+.dms-business-grid .dx-datagrid {
+  background: #ffffff !important;
+}
+.dms-business-grid .dx-datagrid .dx-datagrid-header-panel {
+  background: #ffffff !important;
+}
+.dms-business-grid .dx-datagrid .dx-datagrid-header-panel .dx-toolbar {
+  background: #ffffff !important;
+  padding: 5px 0 5px 0 !important;
+}
+.dms-business-grid .dx-datagrid .dx-command-select {
+  background: #ffffff !important;
+}
+.dms-business-grid .dx-datagrid .dx-datagrid-rowsview .dx-row td[role=gridcell] {
+  padding: 12px 12px;
+}
+.dms-business-grid .dx-datagrid td[role=gridcell] {
+  font-size: 13px !important;
+}
+.dms-business-grid .toggle__search {
+  padding: 9px;
+  color: #5f7d95;
+}
+.dms-business-grid .toggle__search:hover {
+  background-color: #eaf9f2 !important;
+  color: #00703c;
+}
+.dms-business-grid .dx-datagrid-headers {
+  background: #ffffff !important;
+}
+.dms-business-grid .dx-datagrid-headers .dx-datagrid-nowrap {
+  background: #ffffff !important;
+}
+.dms-business-grid .dx-datagrid-headers .dx-row.dx-header-row {
+  background: #ffffff !important;
+}/*# sourceMappingURL=business-grid.css.map */

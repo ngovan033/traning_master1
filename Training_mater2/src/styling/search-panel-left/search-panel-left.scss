@@ -1,0 +1,55 @@
+#search-panel-left {
+  height: calc(100vh - 110px) !important;
+
+  .dx-layout-manager .dx-field-item {
+    padding: 0 0 0 0 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .dx-field-item-label-location-top {
+    margin: 0 0 6px 16px !important;
+    padding: 0px !important;
+  }
+
+  .dx-textbox {
+    margin-left: 16px !important;
+  }
+
+  .dx-daterangebox {
+    margin-left: 16px !important;
+
+    .dx-textbox {
+      margin-left: 0px !important;
+    }
+  }
+
+  .dx-checkbox {
+    margin-left: 16px !important;
+  }
+
+  .search-panel-form {
+    height: calc(100% - 80px);
+  }
+
+  .search-area {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+
+    .dx-button.dx-button-default {
+      margin: 0 16px !important;
+    }
+
+    .dx-button-content {
+      padding: 7px 16px !important;
+    }
+  }
+
+  .dx-field-item-label-text {
+    color: #0e223d !important;
+  }
+}
+
+.dx-drawer-panel-content:has(#search-pane) {
+  max-height: calc(100vh - 110px) !important;
+}
