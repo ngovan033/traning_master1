@@ -115,7 +115,6 @@ export const SerCavityPageDemo = () => {
   const columns = useGridColumns({ data: [], popupRef });
   const handleAdd = () => {
     // localStorage.setItem("test", "12345");
-
     popupRef.current?.showPopup({
       type: "create",
       data: null,
@@ -343,7 +342,7 @@ export const SerCavityPageDemo = () => {
           <ContentSearchPanelLayout.Slot name={"SearchPanel"}>
             <SearchForm
               data={searchCondition.current}
-              onSearch={handleSearch}
+              onSearch={handleSearch} 
 
             />
           </ContentSearchPanelLayout.Slot>
@@ -369,7 +368,7 @@ export const SerCavityPageDemo = () => {
               // onDeleteMultiBtnClick={handleDeleteMulti}
               keyExpr={"CavityNo"}
               storeKey={"Ser_Cavity"}
-              // onRowDblClick={(e) => handleDetail(e.data)}
+              onRowDblClick={(e) => handleDetail(e.data)}
             />
             <PopupFromGrid
               ref={popupRef}

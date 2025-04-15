@@ -1,5 +1,6 @@
 import { CustomerTypePage } from "@/pages/master/CustomerType/CustomerTypePage";
 import { Ser_CavityPage } from "@/pages/master/SerCavity/list/Ser_Cavity";
+import {  PeopleDemo } from "@/pages/master/People/PeopleDemo";
 import { SerCavityPageDemo } from "@/pages/master/SerCavityDemo/SerCavityPageDemo";
 import { RouteItem } from "@/types";
 
@@ -37,6 +38,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <SerCavityPageDemo />,
+    view: "DL",
+  },
+  {
+    key: "People",
+    path: "admin/People",
+    subMenuTitle: "People",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <PeopleDemo />,
     view: "DL",
   },
 ];
