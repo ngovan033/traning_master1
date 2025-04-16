@@ -66,6 +66,8 @@ export const SerCavityPageDemo = () => {
           Ft_PageIndex: gridRef?.current?.getDxInstance().pageIndex() ?? 0,
           Ft_PageSize: gridRef?.current?.getDxInstance().pageSize() ?? 100,
         });
+      
+        
         return response;
       })
       .otherwise(async () => {
@@ -357,7 +359,6 @@ export const SerCavityPageDemo = () => {
               fetchData={fetchData}
               showSTT={true}
               autoFetchData={true}
-              
               customToolbarItems={[]}
               editMode={false}
               editingOptions={{

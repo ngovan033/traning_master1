@@ -1,0 +1,59 @@
+{
+  "DataList": [
+    {
+      "name": "Nguyễn Văn A",
+      "age": 25,
+      "dateOfBirth": "1999-03-15"
+    },
+    {
+      "name": "Trần Thị B",
+      "age": 30,
+      "dateOfBirth": "1994-07-22"
+    },
+    {
+      "name": "Lê Văn C",
+      "age": 28,
+      "dateOfBirth": "1996-01-09"
+    },
+    {
+      "name": "Phạm Thị D",
+      "age": 32,
+      "dateOfBirth": "1992-12-03"
+    },
+    {
+      "name": "Hoàng Văn E",
+      "age": 27,
+      "dateOfBirth": "1997-06-17"
+    },
+    {
+      "name": "Đỗ Thị F",
+      "age": 24,
+      "dateOfBirth": "2000-09-05"
+    },
+    {
+      "name": "Vũ Văn G",
+      "age": 35,
+      "dateOfBirth": "1989-11-29"
+    },
+    {
+      "name": "Bùi Thị H",
+      "age": 26,
+      "dateOfBirth": "1998-04-14"
+    },
+    {
+      "name": "Đặng Văn I",
+      "age": 31,
+      "dateOfBirth": "1993-08-01"
+    },
+    {
+      "name": "Lý Thị K",
+      "age": 29,
+      "dateOfBirth": "1995-02-27"
+    }
+  ],
+  "PageCount": 1,
+  "PageIndex": 0,
+  "ItemCount": 10,
+  "PageSize": 100,
+  "isSuccess": true
+}
