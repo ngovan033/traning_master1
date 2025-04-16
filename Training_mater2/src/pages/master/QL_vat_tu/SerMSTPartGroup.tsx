@@ -12,6 +12,8 @@ import { useSetAtom } from "jotai";
 import { useRef } from "react";
 import PopupCustomerType from "../CustomerType/components/popup/PopupCustomerType";
 import PopupPartGroup from "./popup/PopupPartGroup";
+import { GridCustomerToolBarItem } from "@/packages/components/gridview-standard/grid-custom-toolbar";
+import { toast } from "react-toastify";
 
 export const SerMSTPartGroup = () => {
   const api = useClientgateApi(); // lấy danh sách api
@@ -54,7 +56,7 @@ export const SerMSTPartGroup = () => {
       });
     }
   };
-  
+
   const columns: ColumnOptions[] = [
     {
       dataField: "GroupCode",
@@ -96,7 +98,7 @@ export const SerMSTPartGroup = () => {
       data: data,
     });
     console.log(data);
-    
+
   };
   const handleAdd = () => {
     popupRef.current?.showPopup({
@@ -109,6 +111,57 @@ export const SerMSTPartGroup = () => {
       },
     });
   };
+  const handleDelete = async (listSelected: any[]) => {
+      if (listSelected.length == 0) {
+        showDialog({
+          title: "Thông báo",
+          message: "Vui lòng chọn dữ liệu để xóa!",
+        });
+  
+        return;
+      }
+  
+      await Promise.all(
+        listSelected.map((item) => {
+          return api.SerMSTPartGroup_Delete(item.PartGroupID);
+        })
+      ).then((responses) => {
+        const allSuccess = responses.every((response) => response.isSuccess);
+  
+        if (allSuccess) {
+          toast.success("Xóa thành công!");
+        } else {
+          const firstError = responses.find((response) => !response.isSuccess);
+          showError({
+            message: t(firstError!._strErrCode),
+            _strErrCode: firstError!._strErrCode,
+            _strTId: firstError!._strTId,
+            _strAppTId: firstError!._strAppTId,
+            _objTTime: firstError!._objTTime,
+            _strType: firstError!._strType,
+            _dicDebug: firstError!._dicDebug,
+            _dicExcs: firstError!._dicExcs,
+          });
+        }
+      });
+      gridRef.current?.refetchData();
+    };
+  const toolbarItems: GridCustomerToolBarItem[] = [
+      {
+        text: "Xóa",
+        onClick: async (e: any, ref: any) => {
+          if (ref) {
+            const selectedData =
+              ref?.current?._instance?.getSelectedRowsData() ?? [];
+  
+            await handleDelete(selectedData);
+          }
+        },
+        shouldShow: (ref: any) => {
+          return true;
+        },
+      },
+    ];
   return (
     <AdminContentLayout>
       <AdminContentLayout.Slot name="Header">
@@ -133,12 +186,12 @@ export const SerMSTPartGroup = () => {
           keyExpr={"PartGroupID"}
           autoFetchData={true}
           allowSelection={false}
-          // onRowDeleteBtnClick={handleDelete}
+          onRowDeleteBtnClick={handleDelete}
           storeKey={"ser-mst-partgroup-management-columns"}
-        // customToolbarItems={toolbarItems}
-        editMode={false}
-        // onRowDblClick={(e) => handleDetail(e.data)}
-        hidePagination
+          customToolbarItems={toolbarItems}
+          editMode={false}
+          onRowDblClick={(e) => handleDetail(e.data)}
+          // hidePagination
         />
         <PopupPartGroup
           ref={popupRef}
