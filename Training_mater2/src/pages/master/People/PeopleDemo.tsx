@@ -9,7 +9,8 @@ import { useGridColumnsThongTin } from "./use-columnsThongtin";
 import SearchFormPeople from "./searchPeople";
 import { DataGrid } from "devextreme-react";
 import PopupFromGrid, { IAPI, IGroupColumnPopup, ITitlePopup } from "@/packages/components/popup/PopupFromGrid/PopupFromGrid";
-import { showDialog } from "@/packages/ui/dialogs/dialog-utils";
+import { showDialog, simpleConfirm } from "@/packages/ui/dialogs/dialog-utils";
+
 import { format } from "date-fns";
 
 export const PeopleDemo = () => {
@@ -164,6 +165,7 @@ export const PeopleDemo = () => {
           if (item.name === formData.name) {
             return {
               ...item,
+              name:formData.name ?? item.name,
               age: formData.age ?? item.age,
               dateOfBirth: formData.dateOfBirth ?? item.dateOfBirth,
             };
@@ -258,6 +260,11 @@ export const PeopleDemo = () => {
   ];
   const preSubmit = (formData: any) => {
 
+    if (formData.age > 100) {
+      simpleConfirm("Tuổi không được lớn hơn 100!", () => { });
+      return false;
+    }
+
     return true;
   };
 
@@ -303,10 +310,8 @@ export const PeopleDemo = () => {
               preSubmit={preSubmit}
               title={title_popup}
 
-              primaryKey={"CavityNo"}
-              localeKey="Ser_Cavity"
               firstDefaultValue
-              valueExpr={"CompartmentCode"}
+             
             ></PopupFromGrid>
           </ContentSearchPanelLayout.Slot>
         </ContentSearchPanelLayout>

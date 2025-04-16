@@ -3,6 +3,7 @@ import { Ser_CavityPage } from "@/pages/master/SerCavity/list/Ser_Cavity";
 import {  PeopleDemo } from "@/pages/master/People/PeopleDemo";
 import { SerCavityPageDemo } from "@/pages/master/SerCavityDemo/SerCavityPageDemo";
 import { RouteItem } from "@/types";
+import { SerMSTPartGroup } from "@/pages/master/QL_vat_tu/SerMSTPartGroup";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -47,6 +48,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <PeopleDemo />,
+    view: "DL",
+  },
+  {
+    key: "QL_vat_tu",
+    path: "admin/QL_vat_tu",
+    subMenuTitle: "QL_vat_tu",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <SerMSTPartGroup />,
     view: "DL",
   },
 ];

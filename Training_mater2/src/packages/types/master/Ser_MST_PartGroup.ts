@@ -2,6 +2,7 @@ import { SearchParam } from "../clientgate";
 
 export interface Search_Ser_MST_PartGroup extends SearchParam {
   PartGroupID: string;
+  ParentID:string;
   GroupCode: string;
   GroupName: string;
   IsActive: string;

@@ -7,6 +7,7 @@ import { useGetForCurrentUser } from "./clientgate/Api_GetForCurrentUser";
 import { useSer_CavityApi } from "./clientgate/master/Ser_Cavity";
 import { useSer_MST_CustomerType } from "./clientgate/master/Ser_MST_CustomerType";
 import { useCommonApi } from "./common-api";
+import { useSer_MST_PartGroup } from "./clientgate/master/SerMSTPartGroup";
 
 /**
  * Creates an axios instance for making requests to the ClientGate API.
@@ -240,6 +241,8 @@ export const createClientGateApi = (
   const commonApi = useCommonApi(apiBase);
   const getCurrentUserApi = useGetForCurrentUser(reportApiBase);
   const ser_MST_CustomerTypeApi = useSer_MST_CustomerType(apiBase);
+  const ser_MST_PartGroupApi = useSer_MST_PartGroup(apiBase);
+
   const ser_CavityApi = useSer_CavityApi(apiBase);
 
   return {
@@ -247,6 +250,7 @@ export const createClientGateApi = (
     ...getCurrentUserApi,
     ...ser_MST_CustomerTypeApi,
     ...ser_CavityApi,
+    ...ser_MST_PartGroupApi,
   };
 };
 
