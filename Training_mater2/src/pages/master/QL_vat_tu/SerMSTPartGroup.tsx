@@ -27,8 +27,7 @@ export const SerMSTPartGroup = () => {
   const gridRef: any = useRef(null);
   const { showDialog } = useDialog();
   const searchCondition = useRef<any>({
-      
-    
+
     ParentID: "",
     GroupCode: "",
     GroupName: "",

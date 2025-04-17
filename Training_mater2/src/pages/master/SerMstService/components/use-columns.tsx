@@ -4,23 +4,25 @@ import { requiredType } from "@packages/common/Validation_Rules";
 import { Ser_MST_Service } from "@/packages/types/master/Ser_MST_Service";
 import { LinkCell } from "@packages/ui/link-cell";
 import { nanoid } from "nanoid";
+
 interface UseGridColumnsProps {
   data: Ser_MST_Service[];
   popupRef: any;
 }
 
 export const useGridColumns = ({ data, popupRef }: UseGridColumnsProps) => {
-  
 
   const columns: any[] = [
     {
       dataField: "SerCode",
       caption: "Mã công việc",
+      width : 1,
       validationRules: [requiredType],
       editorOptions: {
         validationMessageMode: "always",
         placeholder: "Input",
       },
+    
       visible: true,
       columnIndex: 1,
       groupKey: "BASIC_INFORMATION",
@@ -53,6 +55,7 @@ export const useGridColumns = ({ data, popupRef }: UseGridColumnsProps) => {
       dataField: "StdManHour",
       caption: "Giờ định mức",
       editorType: "dxNumberBox",
+      
       editorOptions: {
         placeholder: "Input",
         showSpinButtons: true,

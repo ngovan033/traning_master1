@@ -38,7 +38,6 @@ export const Ser_MST_ServicePage = () => {
     VAT: "",
     Note: "",
     FlagWarranty: "", //Cờ công việc bảo hành
-
     IsActive: "1",
 
   });
@@ -168,6 +167,7 @@ export const Ser_MST_ServicePage = () => {
           dataField: "SerCode",
           caption: "Mã công việc",
           editorType: "dxTextBox",
+          
           required: true,
           rules: {
             required: "Vui lòng nhập mã công việc!",
@@ -198,6 +198,7 @@ export const Ser_MST_ServicePage = () => {
         {
           dataField: "Cost",
           caption: "Giá định mức",
+          defaultValue : "0",
           editorType: "dxNumberBox",
           required: true,
           rules: {

@@ -61,6 +61,7 @@ export interface SearchSer_CustomerCarParam extends SearchParam {
   InsNo?: string;
   IsActive?: string;
   //
+  Tel:string;
   CusId: string;
   CusID: string;
   CusName: string;
