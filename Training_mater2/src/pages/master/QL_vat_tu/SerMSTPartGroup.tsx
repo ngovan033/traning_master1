@@ -14,6 +14,9 @@ import PopupCustomerType from "../CustomerType/components/popup/PopupCustomerTyp
 import PopupPartGroup from "./popup/PopupPartGroup";
 import { GridCustomerToolBarItem } from "@/packages/components/gridview-standard/grid-custom-toolbar";
 import { toast } from "react-toastify";
+import { useDialog } from "@/packages/hooks/useDiaglog";
+
+
 
 export const SerMSTPartGroup = () => {
   const api = useClientgateApi(); // lấy danh sách api
@@ -22,7 +25,10 @@ export const SerMSTPartGroup = () => {
   const popupRef = useRef();
   const config = useConfiguration();
   const gridRef: any = useRef(null);
+  const { showDialog } = useDialog();
   const searchCondition = useRef<any>({
+      
+    
     ParentID: "",
     GroupCode: "",
     GroupName: "",

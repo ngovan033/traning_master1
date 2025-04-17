@@ -23,6 +23,13 @@ export interface Search_Ser_MST_Service extends SearchParam {
   SerID: string;
   DealerCode: string;
   SerCode: string;
+  StdManHour: string | number;
+  Cost: string | number;
+  Price: string | number;
+  VAT: string | number;
+  Model: string;
+  FlagWarranty: string;
+  Note: string;
   SerName: string;
   CusTypeID: string;
   IsActive: string;

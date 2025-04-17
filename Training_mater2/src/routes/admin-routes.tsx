@@ -4,6 +4,7 @@ import {  PeopleDemo } from "@/pages/master/People/PeopleDemo";
 import { SerCavityPageDemo } from "@/pages/master/SerCavityDemo/SerCavityPageDemo";
 import { RouteItem } from "@/types";
 import { SerMSTPartGroup } from "@/pages/master/QL_vat_tu/SerMSTPartGroup";
+import { Ser_MST_ServicePage } from "@/pages/master/SerMstService/list/Ser_MST_Service";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -57,6 +58,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <SerMSTPartGroup />,
+    view: "DL",
+  },
+  {
+    key: "SerMstService",
+    path: "admin/SerMstService",
+    subMenuTitle: "SerMstService",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Ser_MST_ServicePage />,
     view: "DL",
   },
 ];
