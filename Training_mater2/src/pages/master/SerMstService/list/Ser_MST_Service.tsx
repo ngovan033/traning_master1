@@ -11,14 +11,18 @@ import { useGridColumns } from "../components/use-columns"
 import { useSetAtom } from "jotai"
 import { showErrorAtom } from "@/packages/store"
 import PopupFromGrid, { IAPI, IGroupColumnPopup, ITitlePopup } from "@/packages/components/popup/PopupFromGrid/PopupFromGrid"
-import { format } from "date-fns"
+import { format, min } from "date-fns"
 import ConfirmComponent from "@/packages/components/ConfirmComponent"
+
+import { Tile } from "devextreme-react/tree-map"
+import { useDialog } from "@/packages/hooks/useDiaglog"
 
 export const Ser_MST_ServicePage = () => {
   let gridRef: any = useRef<DataGrid | null>(null);
   const popupRef = useRef<any>(null);
 
   const showError = useSetAtom(showErrorAtom);
+  const { showDialog } = useDialog();
 
   const api = useClientgateApi();
   const columns = useGridColumns({ data: [], popupRef });
@@ -223,9 +227,11 @@ export const Ser_MST_ServicePage = () => {
           rules: {
             required: "Vui lòng nhập VAT!",
           },
+      
           editorOptions: {
-           
-            format: "#0.## '%'", // hiển thị phần trăm
+            min: 0,
+            max: 100,
+            format: "#0.## '%'", 
           },
         },
         {
@@ -270,7 +276,15 @@ export const Ser_MST_ServicePage = () => {
 
 
   const preSubmit = (formData: any) => {
-
+       const {VAT} = formData
+       if( VAT <0 || VAT >100){
+        showDialog({
+          title:"Thông báo",
+          message:
+            "Thuế vượt quá mức cho phép"
+          
+        })
+       }
     return true;
   };
 
@@ -335,7 +349,7 @@ export const Ser_MST_ServicePage = () => {
               onPageChanged={(number) => onRefetchData(number ?? 0)}
              
               onDeleteMultiBtnClick={handleDeleteMulti}
-              keyExpr={"CavityNo"}
+              keyExpr={"SerID"}
               storeKey={"Ser_MST_Service"}
             onRowDblClick={(e) => handleDetail(e.data)}
             />
