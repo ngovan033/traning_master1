@@ -12,6 +12,7 @@ import { useSetAtom } from "jotai"
 import { showErrorAtom } from "@/packages/store"
 import PopupFromGrid, { IAPI, IGroupColumnPopup, ITitlePopup } from "@/packages/components/popup/PopupFromGrid/PopupFromGrid"
 import { format } from "date-fns"
+import ConfirmComponent from "@/packages/components/ConfirmComponent"
 
 export const Ser_MST_ServicePage = () => {
   let gridRef: any = useRef<DataGrid | null>(null);
@@ -276,6 +277,26 @@ export const Ser_MST_ServicePage = () => {
   const onMountInitial = async () => {
 
   };
+  const handleDeleteRow = async (ids: string[]) => { };
+  const handleDeleteMulti = async () => {
+    return ConfirmComponent({
+      asyncFunction: async () => {
+        const listChecked = gridRef?.current
+          ?.getDxInstance()
+          ?.getSelectedRowKeys();
+
+        await handleDeleteRow(listChecked);
+      },
+      title:"Confirm",
+      contentConfirm: "Do you want to delete?",
+    });
+  };
+  const handleDetail = (data: any) => {
+    popupRef.current?.showPopup({
+      type: "detail",
+      data: data,
+    });
+  };
   return (
     <AdminContentLayout className={"dealer-management"}>
       <AdminContentLayout.Slot name={"Header"}>
@@ -311,12 +332,12 @@ export const Ser_MST_ServicePage = () => {
               editingOptions={{
                 mode: "row",
               }}
-              // onPageChanged={(number) => onRefetchData(number ?? 0)}
-              // onRowDeleteBtnClick={handleDelete}
-              // onDeleteMultiBtnClick={handleDeleteMulti}
+              onPageChanged={(number) => onRefetchData(number ?? 0)}
+             
+              onDeleteMultiBtnClick={handleDeleteMulti}
               keyExpr={"CavityNo"}
               storeKey={"Ser_MST_Service"}
-            // onRowDblClick={(e) => handleDetail(e.data)}
+            onRowDblClick={(e) => handleDetail(e.data)}
             />
             <PopupFromGrid
               ref={popupRef}
