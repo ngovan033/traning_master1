@@ -35,10 +35,7 @@ const SearchForm = ({ data, onSearch }: SearchFormProps) => {
         const response = await api.Ser_MST_PartGroup_GetAllActive();
         if (response.isSuccess) {
           return [
-            {
-              GroupCode: "",
-              GroupName: "Tất cả", // Tất cả
-            },
+     
             ...(response.DataList as any),
           ];
         } else {
@@ -121,15 +118,18 @@ const SearchForm = ({ data, onSearch }: SearchFormProps) => {
           <SelectField
             width={270}
             showClearButton={true}
-            items={[
-              { text: "Tất cả", value: "" },
-              ...(getMSTPartGroup
-                ?.filter((item: any) => !!item.GroupName?.trim()) // Lọc GroupName không rỗng
-                .map((item: any) => ({
-                  text: item.GroupName.trim(),
-                  value: item.PartGroupID,
-                })) ?? []),
+         
+            items={ [
+              {
+                text: "Tất cả",
+                value: "",
+              },
+              ...(getMSTPartGroup?.map((item: any) => ({
+                text: item.GroupName?.trim() ?? "",
+                value: item.PartGroupID,
+              })) ?? []),
             ]}
+            
             displayExpr="text"
             valueExpr="value"
             dataField={dataField}
