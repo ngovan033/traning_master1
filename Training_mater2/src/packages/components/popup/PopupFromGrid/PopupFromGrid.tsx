@@ -521,7 +521,11 @@ const PopupFromGrid = forwardRef(
       >
         <form className="flex flex-col" id="editForm" onSubmit={formSubmit}>
           <div
-            className={`grid grid-cols-${groupColumn.length} gap-[${gapBetweenEachGroup}px] popup-${groupColumn.length}-col`}
+            className={`grid gap-[${gapBetweenEachGroup}px] popup-${groupColumn.length}-col`}
+            style={{
+              gridTemplateColumns: `repeat(${groupColumn.length}, 1fr)`,
+             
+            }}
           >
             {groupColumn.map((group, index) => {
               return (

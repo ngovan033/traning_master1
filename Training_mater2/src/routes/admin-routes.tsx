@@ -6,6 +6,7 @@ import { RouteItem } from "@/types";
 import { SerMSTPartGroup } from "@/pages/master/QL_vat_tu/SerMSTPartGroup";
 import { Ser_MST_ServicePage } from "@/pages/master/SerMstService/list/Ser_MST_Service";
 import { Ser_CustomerCarPage } from "@/pages/master/SerCustomerCar/list/SerCustomerCar";
+import { Ser_Mst_PartPage } from "@/pages/master/Ser_MST_Part/list/Ser_Mst_Part";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -77,6 +78,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <Ser_CustomerCarPage />,
+    view: "DL",
+  },
+  {
+    key: "Ser_MST_Part",
+    path: "admin/Ser_MST_Part",
+    subMenuTitle: "Ser_MST_Part",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Ser_Mst_PartPage />,
     view: "DL",
   },
 ];

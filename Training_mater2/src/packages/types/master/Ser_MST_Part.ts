@@ -2,7 +2,7 @@ import { SearchParam } from "../clientgate";
 
 export interface Ser_MST_Part {
   PartID: string;
-  PartGroupID: string;
+  PartGroupID: number;
   PartTypeID: string;
   DealerCode: string;
   PartCode: string;
