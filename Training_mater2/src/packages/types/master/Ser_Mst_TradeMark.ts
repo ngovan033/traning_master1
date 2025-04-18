@@ -3,6 +3,8 @@ export interface Search_Ser_Mst_TradeMark extends SearchParam {
   KeyWork: string;
   DealerCode: string;
   IsActive: string;
+  TradeMarkCode: string;
+  TradeMarkName: string;
 }
 
 export interface Ser_Mst_TradeMark {

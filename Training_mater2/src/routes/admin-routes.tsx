@@ -7,6 +7,8 @@ import { SerMSTPartGroup } from "@/pages/master/QL_vat_tu/SerMSTPartGroup";
 import { Ser_MST_ServicePage } from "@/pages/master/SerMstService/list/Ser_MST_Service";
 import { Ser_CustomerCarPage } from "@/pages/master/SerCustomerCar/list/SerCustomerCar";
 import { Ser_Mst_PartPage } from "@/pages/master/Ser_MST_Part/list/Ser_Mst_Part";
+import { Quan_ly_loai_hang } from "@/pages/master/QuanLyLoaiHang/Quan_Li_Loai_Hang";
+import { Ser_Mst_TradeMarkPage } from "@/pages/master/QuanLyHieuXe/Ser_Mst_TradeMark";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -56,7 +58,7 @@ export const adminRoutes: RouteItem[] = [
   {
     key: "QL_vat_tu",
     path: "admin/QL_vat_tu",
-    subMenuTitle: "QL_vat_tu",
+    subMenuTitle: "Quản lý vật tư",
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <SerMSTPartGroup />,
@@ -65,7 +67,7 @@ export const adminRoutes: RouteItem[] = [
   {
     key: "SerMstService",
     path: "admin/SerMstService",
-    subMenuTitle: "SerMstService",
+    subMenuTitle: "Quản lý công việc",
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <Ser_MST_ServicePage />,
@@ -74,7 +76,7 @@ export const adminRoutes: RouteItem[] = [
   {
     key: "SerCustomerCar",
     path: "admin/SerCustomerCar",
-    subMenuTitle: "SerCustomerCar",
+    subMenuTitle: "Quản lý khách hàng",
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <Ser_CustomerCarPage />,
@@ -83,10 +85,28 @@ export const adminRoutes: RouteItem[] = [
   {
     key: "Ser_MST_Part",
     path: "admin/Ser_MST_Part",
-    subMenuTitle: "Ser_MST_Part",
+    subMenuTitle: "Quản lý danh sách phụ tùng",
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <Ser_Mst_PartPage />,
+    view: "DL",
+  },
+  {
+    key: "QuanLyLoaiHang",
+    path: "admin/QuanLyLoaiHang",
+    subMenuTitle: "Quản lý loại hàng",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Quan_ly_loai_hang />,
+    view: "DL",
+  },
+  {
+    key: "QuanLyHieuXe",
+    path: "admin/QuanLyHieuXe",
+    subMenuTitle: "Quản lý hiệu xe",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Ser_Mst_TradeMarkPage />,
     view: "DL",
   },
 ];

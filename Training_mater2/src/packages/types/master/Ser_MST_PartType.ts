@@ -5,6 +5,8 @@ export interface Search_Ser_MST_PartType extends SearchParam {
   SOApprDateToInit: string;
   SOApprDateTo: string;
   SOApprDateFromTo: any;
+  TypeName: string;
+
 }
 export interface Ser_MST_PartType {
   PartTypeID: string;

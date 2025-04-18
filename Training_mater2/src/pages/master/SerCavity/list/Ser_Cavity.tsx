@@ -40,10 +40,8 @@ export const Ser_CavityPage = () => {
   const config = useConfiguration();
   const { showDialog } = useDialog();
   const { isHTV } = usePermissions();
-
   const showError = useSetAtom(showErrorAtom);
   const dataSourcePopup = useMstLocationDataSource();
-
   const searchCondition = useRef<Partial<Search_Ser_Cavity_Param>>({
     Ft_PageIndex: 0,
     Ft_PageSize: 100,
@@ -53,9 +51,7 @@ export const Ser_CavityPage = () => {
     IsActive: "1",
     StatusUse: "",
   });
-
   const api = useClientgateApi();
-
   const columns = useGridColumns({ data: [], popupRef });
 
   const handleAddNew = () => {

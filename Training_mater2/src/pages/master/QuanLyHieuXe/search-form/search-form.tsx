@@ -16,7 +16,7 @@ interface SearchFormProps {
 
 const SearchForm = ({ data, onSearch }: SearchFormProps) => {
   const searchPanelRef = useRef<any>(null);
-  const { t } = useI18n("Ser_Cavity");
+  const { t } = useI18n("Ser_MSTPart");
   const formData = {
     ...data,
   };
@@ -28,38 +28,59 @@ const SearchForm = ({ data, onSearch }: SearchFormProps) => {
   const api = useClientgateApi();
   const showError = useSetAtom(showErrorAtom);
 
- 
+  const { data: getMSTPartGroup, isLoading: isGettingListInsuranceCode } =
+    useQuery({
+      queryKey: ["getMSTPartGroup"],
+      queryFn: async () => {
+        const response = await api.Ser_MST_PartGroup_GetAllActive();
+        if (response.isSuccess) {
+          return [
+     
+            ...(response.DataList as any),
+          ];
+        } else {
+          showError({
+            message: t(response._strErrCode),
+            _strErrCode: response._strErrCode,
+            _strTId: response._strTId,
+            _strAppTId: response._strAppTId,
+            _objTTime: response._objTTime,
+            _strType: response._strType,
+            _dicDebug: response._dicDebug,
+            _dicExcs: response._dicExcs,
+          });
+        }
+      },
+    });
 
   const searchFields: any[] = [
-   
-    
     {
       visible: true,
-      dataField: "TypeName",
+      dataField: "KeyWork",
       label: {
-        text: "Từ khóa",
+        text: "Nhập từ khóa", 
       },
       render: (param: any) => {
         const { dataField, component: formComponent } = param;
         const formData = formComponent.option("formData");
         const value = formData[dataField];
         return (
-          <div className={"flex flex-row "}>
-            <TextField
-              dataField={dataField}
-              formInstance={formComponent}
-              defaultValue={value}
-              onValueChanged={(e: any) => {
-                formComponent.updateData(dataField, e.value);
-              }}
-              placeholder={"Nhập"}
-              showClearButton={true}
-              onEnterKey={onEnterKey}
-            />
-          </div>
+          <TextField
+            dataField={dataField}
+            formInstance={formComponent}
+            defaultValue={value}
+            onValueChanged={(e: any) => {
+              formComponent.updateData(dataField, e.value);
+            }}
+            placeholder={"Nhập"}
+            showClearButton={true}
+            onEnterKey={onEnterKey}
+          />
         );
       },
     },
+    
+
     
   ];
 
@@ -74,12 +95,12 @@ const SearchForm = ({ data, onSearch }: SearchFormProps) => {
 
     return true;
   };
-  return (    
+  return (
     <SearchPanelLeft
-      formData={formData} 
+      formData={formData}
       onSearch={onSearch}
       searchFields={searchFields}
-      storeKey="Ser_Cavity-SearchForm"
+      storeKey="Ser_MST_Part-SearchForm"
       ref={searchPanelRef}
       checkValidFormData={checkValidFormData}
     />
