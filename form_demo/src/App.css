@@ -1,0 +1,12 @@
+.data-grid {
+  margin-top: 20px;
+
+}
+
+.container {
+  width: calc(100% - 300px);
+  margin: 0 auto;
+  height: 100vh;
+
+
+}

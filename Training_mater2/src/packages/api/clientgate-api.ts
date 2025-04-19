@@ -13,6 +13,7 @@ import { useSer_CustomerCarApi } from "./clientgate/master/Ser_Customer_Car";
 import { useSer_MST_PartApi } from "./clientgate/master/Ser_MST_Part";
 import { useSer_MST_PartTypeApi } from "./clientgate/master/Ser_MST_PartType";
 import { useSer_Mst_TradeMarkApi } from "./clientgate/master/Ser_Mst_TradeMark";
+import { useSer_ModelApi } from "./clientgate/master/Ser_Model";
 
 /**
  * Creates an axios instance for making requests to the ClientGate API.
@@ -253,6 +254,7 @@ export const createClientGateApi = (
   const ser_MST_PartApi = useSer_MST_PartApi(apiBase);
   const ser_MST_PartTypeApi = useSer_MST_PartTypeApi(apiBase);
   const ser_MST_TradeMarkApi = useSer_Mst_TradeMarkApi(apiBase);
+  const ser_MST_ModelApi = useSer_ModelApi(apiBase);
 
   return {
     ...commonApi,
@@ -265,6 +267,7 @@ export const createClientGateApi = (
     ...ser_MST_PartApi,
     ...ser_MST_PartTypeApi,
     ...ser_MST_TradeMarkApi,
+    ...ser_MST_ModelApi,
   };
 };
 
