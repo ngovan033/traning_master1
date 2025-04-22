@@ -3,6 +3,7 @@ import { SearchParam } from "../clientgate";
 export interface Search_Ser_MST_Model extends SearchParam {
   TradeMarkCode: string;
   ModelName: string;
+  
 }
 export interface Ser_MST_Model {
   ModelID: string;

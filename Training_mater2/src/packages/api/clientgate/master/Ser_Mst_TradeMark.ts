@@ -4,6 +4,15 @@ import { AxiosInstance } from "axios"
 
 export const useSer_Mst_TradeMarkApi = (apiBase: AxiosInstance) => {
   return {
+    Ser_Mst_TradeMark_GetAllActive: async (): Promise<
+          ApiResponse<Ser_Mst_TradeMark>
+        > => {
+          return await apiBase.post<
+            Partial<Search_Ser_Mst_TradeMark>,
+            ApiResponse<Ser_Mst_TradeMark>
+          >("/SerMstTradeMark/GetAllActive", {});
+        },
+    
      Ser_Mst_TradeMark_SearchDL: async (
           params: Partial<Search_Ser_Mst_TradeMark>
         ): Promise<ApiResponse<Ser_Mst_TradeMark>> => {

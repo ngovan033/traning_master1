@@ -151,7 +151,7 @@ export const Ser_Mst_PartPage = () => {
   };
 
   const column_popup: IGroupColumnPopup[] = [
-    // tại sao lại phải tách thành mảng 2 item?
+  
     {
       columns: [
         {

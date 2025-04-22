@@ -1,0 +1,1615 @@
+@import "./themes/generated/variables.base.scss";
+@import "./themes/variables.common.scss";
+.user__select {
+  user-select: text !important;
+}
+
+/////////////////////PHAN THANG TÔ MÀU LƯỚI VỚI TRẠNG THÁI TƯƠNG ỨNG////////////////////////////////
+// ĐỪNG XÓA
+.highlight__row:has(.highlight__row--PRT) {
+  background-color: rgb(255, 192, 255);
+}
+
+.highlight__row:has(.highlight__row--HRO) {
+  background-color: rgb(255, 192, 255);
+}
+
+.highlight__row:has(.highlight__row--CRE) {
+  background-color: rgb(255, 192, 255);
+}
+
+.highlight__row:has(.highlight__row--INGA) {
+  background-color: rgb(192, 192, 255);
+}
+
+.highlight__row:has(.highlight__row--RPRD) {
+  background-color: rgb(192, 255, 255);
+}
+
+.highlight__row:has(.highlight__row--CEND) {
+  background-color: rgb(230, 230, 250);
+}
+
+.highlight__row:has(.highlight__row--PAID) {
+  background-color: rgb(255, 192, 192);
+}
+
+.highlight__row:has(.highlight__row--FNS) {
+  background-color: rgb(192, 255, 192);
+}
+
+.highlight__row:has(.highlight__row--REJ) {
+  background-color: rgb(255, 255, 192);
+}
+
+.highlight__row:has(.highlight__row--NORE) {
+  background-color: #fff;
+}
+
+.highlight__row:has(.highlight__row--HPA) {
+  background-color: #fff;
+}
+
+.highlight__row:has(.highlight__row--W4P) {
+  background-color: #fff;
+}
+
+// phục vụ cho màn phiếu nhập kho
+.row__serinstockin:has(.PartValidInSystem) {
+  background-color: #c0ffff;
+}
+
+#GridViewOne_SerInvStockIn_Modify {
+  .dx-data-row {
+    .row__serinstockin_planlocationid:empty {
+      background-color: rgba(244, 67, 54, 0.32) !important;
+    }
+  }
+}
+.dx-texteditor-container {
+  background: #fff;
+  border: 0.5px solid #5f7d95;
+  border-radius: 3px;
+  text-decoration: none;
+  overflow: visible !important;
+  outline: none;
+  -webkit-border-radius: 3px !important;
+  -moz-border-radius: 3px !important;
+  -ms-border-radius: 3px !important;
+  -o-border-radius: 3px !important;
+}
+
+#searchForm .dx-layout-manager .dx-field-item {
+  padding-bottom: 0px !important;
+}
+.FormCSS {
+  .dx-layout-manager .dx-field-item {
+    padding-bottom: 0px !important;
+  }
+
+  .dx-form-group-with-caption > .dx-form-group-content {
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .dx-layout-manager .dx-field-item:not(.dx-first-row) {
+    padding-top: 0px !important;
+  }
+
+  .dx-layout-manager
+    .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+    padding: 7px 0 7px 0 !important;
+  }
+
+  .dx-invalid-message-bottom .dx-invalid-message > .dx-overlay-content {
+    padding: 1px 0 0;
+  }
+
+  .dx-form-group-caption {
+    font-weight: 700;
+  }
+
+  .text-field .dx-texteditor-container,
+  .date-field .dx-texteditor-container,
+  .select-field .dx-texteditor-container,
+  .dx-tagbox,
+  .dx-datebox,
+  .dx-selectbox,
+  .text-field .dx-textbox,
+  .dx-numberbox,
+  .dx-daterangebox {
+    height: 24px !important;
+  }
+
+  .dx-daterangebox .dx-texteditor.dx-editor-filled .dx-texteditor-input {
+    padding: 3px 10px 3px !important;
+  }
+
+  .dx-daterangebox .dx-state-readonly {
+    height: 24px !important;
+  }
+
+  .dx-daterangebox
+    .dx-texteditor.dx-editor-filled
+    .dx-texteditor-input[aria-readonly="true"] {
+    padding: 3px 10px 3px !important;
+  }
+
+  .dx-field-item-label-content {
+    // width: 110px !important;
+    // white-space: pre-line;
+  }
+
+  .dx-form-group-content
+    .dx-layout-manager
+    .dx-box
+    .dx-item
+    .dx-field-item:not(:has(.dx-invalid)) {
+    align-items: center;
+  }
+
+  .dx-field-item-label-location-left {
+    padding-right: 0px !important;
+  }
+
+  .FormCSS_Col3 .dx-layout-manager .dx-field-item:not(.dx-first-col) {
+    padding-left: 20px;
+  }
+
+  .FormCSS_Col3 .dx-layout-manager .dx-field-item:not(.dx-last-col) {
+    padding-right: 20px;
+  }
+  // ===========================================
+  .container__field {
+    display: flex;
+    align-items: center;
+  }
+
+  .container__field_label_group {
+    position: relative;
+    width: 110px;
+  }
+
+  .container__field_label {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+      font-size: 13px;
+      color: #0e223d;
+
+      span {
+        padding-left: 2px;
+        color: red;
+      }
+    }
+  }
+
+  .container__field_field {
+    flex: 1;
+  }
+
+  // .dx-layout-manager .dx-field-item:not(.dx-last-col) {
+  //   padding-right: 180px;
+  // }
+  // .dx-layout-manager .dx-field-item:not(.dx-first-col) {
+  //   padding-left: 180px;
+  // }
+}
+
+// phục vụ cho trường hợp icon validate bị che mất số ở bên phải,
+// thêm css: padding-when-validate vào class NumberBox sẽ khắc phục
+.padding-when-validate {
+  .dx-texteditor-container {
+    .dx-texteditor-input-container {
+      input[aria-invalid="true"] {
+        margin-right: 20px !important;
+      }
+    }
+  }
+}
+
+.dx-layout-manager .dx-field-item:not(.dx-first-row) {
+  padding-top: 0px;
+}
+
+.customize-textbox-field {
+  .dx-texteditor-container {
+    .dx-texteditor-input-container {
+      input {
+        text-transform: uppercase !important;
+      }
+    }
+  }
+}
+
+// CSS background color's NumberBox when readonly
+.customize-background-numberbox-readonly {
+  .dx-texteditor-input[aria-readonly="true"] {
+    background-color: #e9ebf3 !important;
+  }
+}
+
+.use-popup .dx-label-h-align {
+  gap: 15px !important;
+}
+
+.use-popup .dx-popup-content {
+  padding: 0 !important;
+}
+
+.NumberBox .dx-texteditor-input {
+  text-align: end;
+}
+
+///////////////////HIGHLIGHT CHECKBOX IN SEARCH FIELD PAGE///////////////////////////
+// ĐỪNG XÓA
+.highlight__checkbox--FlagChoSua {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(255, 192, 255); // màu tương ứng với loại checkbox
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagDangSua {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(192, 192, 255);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagRepaired {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(192, 255, 255);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagCheckEnd {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(230, 230, 250);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagPaid {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(255, 192, 192);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagFinished {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(192, 255, 192);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagReject {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: rgb(255, 255, 192);
+    width: unset !important;
+  }
+}
+
+.highlight__checkbox--FlagKhongDung {
+  .dx-checkbox-container {
+    padding: 2px;
+    background-color: #fff;
+    width: unset !important;
+  }
+}
+
+.dx-field-item-required-mark {
+  color: red !important;
+}
+
+// ========================
+.date_rang_box_simpleitemform {
+  padding-bottom: 0 !important;
+}
+
+// ==================================CSS NGHIỆP VỤ CỦA PHANTHANG==============================
+// css button thoát
+.exit-button {
+  background: linear-gradient(0deg, #efefef -5%, rgba(255, 255, 255, 0) 100%);
+  border: 0.5px solid #5f7d95 !important;
+  transform: translateX(-5px);
+  span {
+    font-size: 13px;
+    font-weight: 400;
+    color: #0e223d;
+  }
+}
+
+.exit-button:hover {
+  background: linear-gradient(
+    0deg,
+    #efefef -5%,
+    rgba(255, 255, 255, 0) 100%
+  ) !important;
+  span {
+    color: red;
+  }
+}
+
+// css cho phần nghiệp vụ đúng với thiết kế
+// dùng cho frame gốc
+.config_md_grid {
+  // đè lại css
+  #GridviewOne .dx-texteditor {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #GridviewOne .dx-texteditor {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .dx-datagrid .dx-datagrid-rowsview .dx-row td[role="gridcell"] {
+    height: 32px !important;
+  }
+  // loại bỏ gạch chân ở editor trên lưới chỉnh sửa
+  .dx-datagrid-focus-overlay {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .dx-editor-cell {
+    .dx-texteditor-input-container {
+      height: 100% !important;
+    }
+    .dx-texteditor-input {
+      height: 100% !important;
+      line-height: 100% !important;
+      padding: 0 8px !important;
+    }
+  }
+}
+
+
+// css tính tổng của lưới
+.count__summary {
+  // margin-left: -11px !important;
+  margin-right: -3px !important;
+  text-align: right !important;
+  font-weight: bold !important;
+  color: #0e223d !important;
+}
+// dùng cho frame cellRender
+.config_md_grid_v2 {
+  // đè lại css
+  .dx-texteditor {
+    height: 24px;
+  }
+  #GridviewOne .dx-texteditor {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #GridviewOne .dx-texteditor {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .dx-datagrid .dx-datagrid-rowsview .dx-row td[role="gridcell"] {
+    height: 32px !important;
+  }
+  // loại bỏ gạch chân ở editor trên lưới chỉnh sửa
+  .dx-datagrid-focus-overlay {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .dx-editor-cell {
+    .dx-texteditor-input-container {
+      height: 100% !important;
+    }
+    .dx-texteditor-input {
+      height: 100% !important;
+      line-height: 100% !important;
+      padding: 0 8px !important;
+    }
+  }
+}
+
+// CSS giao diện các phần nghiệp vụ bé lại
+.modify__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .modify__content_form {
+    height: max-content;
+  }
+
+  .modify__content_grid {
+    height: 100%;
+  }
+}
+
+// css my popup devextreme
+.config_md_popup {
+  // reset scrollable
+
+  // css lại cho chuẩn tùy chỉnh của form trong popup
+  .container__field_label_group {
+    position: relative;
+    width: 100px !important;
+  }
+
+  .dx-item-content.dx-box-item-content.dx-box-flex.dx-box.dx-widget.dx-collection {
+    gap: 62px !important;
+  }
+
+  // css content container trong popup
+  .dx-popup-content.dx-popup-content-scrollable {
+    margin: 10px 0px !important;
+  }
+
+  .dx-overlay-content.dx-popup-normal.dx-popup-draggable.dx-popup-flex-height.dx-resizable {
+    min-height: unset !important;
+  }
+
+  .dx-toolbar.dx-popup-bottom {
+    padding: 0px 20px;
+    min-height: 58.8px !important;
+    .dx-toolbar-items-container {
+      margin: 0 20px;
+      margin: 10px 0;
+    }
+  }
+
+  // css caption group
+  .dx-form-group-caption {
+    display: block;
+    background-color: #e8f0f6;
+    padding: 7px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+  }
+  // remove border group field
+  .dx-form-group-content {
+    border: none !important;
+  }
+}
+
+// group header tự định nghĩ
+.customize_header_group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: #e8f0f6;
+  padding: 7px 6px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+// header form create
+#config_md_form {
+  .dx-form-group-caption {
+    font-size: 13px; //  !important
+  }
+
+  .dx-form-group-with-caption > .dx-form-group-content {
+    margin-top: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .dx-texteditor-container {
+    height: 26px; //  !important;
+    // max-height: 100px ;//  !important;
+  }
+
+  .text-field .dx-texteditor.dx-editor-filled.dx-state-readonly,
+  .dx-texteditor.dx-editor-filled {
+    height: 26px; //  !important;
+    // max-height: 100px ;//  !important;
+  }
+
+  .dx-layout-manager .dx-field-item {
+    padding-bottom: 0px;
+  }
+
+  .dx-layout-manager
+    .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+    padding: 6px 0 !important;
+  }
+
+  // css vị trí của message lỗi
+  .dx-overlay-content.dx-invalid-message-content {
+    padding: 0; //  !important;
+    font-size: 11px;
+  }
+
+  .dx-invalid-message > .dx-overlay-content {
+    max-width: fit-content !important;
+  }
+}
+
+// header form
+.breadcrumb_header_form_edit {
+  height: 44px;
+  padding: 12px;
+  .title__root {
+    font-size: 14px;
+    color: #5f7d95;
+  }
+  .separate__icon {
+    margin: 0 12px;
+  }
+  .title__current {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0e223d;
+  }
+}
+.header_form_edit {
+  margin: 8px 30px;
+}
+
+#config_md_form_v2 { 
+  // ===========================================
+  .container__field {
+    display: flex;
+    align-items: center;
+  }
+
+  .container__field_label_group {
+    position: relative;
+    width: 110px;
+  }
+
+  .container__field_label {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+      font-size: 13px;
+      color: #0e223d;
+
+      span {
+        padding-left: 2px;
+        color: red;
+      }
+    }
+  }
+
+  .container__field_field {
+    flex: 1;
+  }
+
+  // ===========================================
+  .dx-form-group-caption {
+    font-size: 13px; //  !important
+  }
+
+  .dx-form-group-with-caption > .dx-form-group-content {
+    margin-top: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .dx-texteditor-container {
+    height: 26px; //  !important;
+  }
+
+  .text-field .dx-texteditor.dx-editor-filled.dx-state-readonly,
+  .dx-texteditor.dx-editor-filled {
+    height: 26px; //  !important;
+  }
+
+  /// ================================
+  .dx-field-item:not(.dx-field-item-has-group):not(.dx-field-item-has-tabs):not(
+      .dx-first-row
+    ):not(.dx-label-v-align) {
+    padding-top: 0;
+  }
+
+  .dx-item-content.dx-box-item-content.dx-box-flex.dx-box.dx-widget.dx-collection {
+    gap: 75px;
+  }
+
+  .dx-box-flex.dx-box.dx-widget.dx-collection {
+    gap: 16px;
+  }
+
+  .dx-field-item-has-group {
+    padding: 0;
+  }
+
+  .dx-first-col.dx-last-col.dx-field-item.dx-col-0.dx-field-item-required.dx-flex-layout.dx-label-h-align {
+    flex: 1;
+  }
+
+  .dx-first-col.dx-last-col.dx-field-item.dx-col-0.dx-field-item-optional.dx-flex-layout.dx-label-h-align {
+    flex: 1;
+  }
+
+  /// ================================
+  .dx-layout-manager .dx-field-item {
+    padding-bottom: 0px;
+  }
+
+  .dx-layout-manager
+    .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+    padding: 6px 0 !important;
+  }
+
+  // css vị trí của message lỗi
+  .dx-overlay-content.dx-invalid-message-content {
+    padding: 0; //  !important;
+    font-size: 11px;
+  }
+
+  .dx-overlay-content.dx-invalid-message-content {
+    padding: 1px 0 0 0 !important; //  !important;
+    font-size: 11px;
+  }
+
+  .dx-invalid-message > .dx-overlay-content {
+    max-width: fit-content !important;
+  }
+}
+
+// grid
+.title__grid_part {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0e223d;
+  margin-right: 10px;
+}
+
+.data-grid-sm {
+  .remove-underline:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 0px !important;
+    background-color: #318b61;
+    left: 0;
+    right: 1px;
+  }
+
+  // css phần header grid
+  .dx-datagrid .dx-datagrid-headers .dx-row td[role="columnheader"],
+  .dx-datagrid .dx-datagrid-rowsview .dx-row td[role="columnheader"] {
+    padding: 6px !important;
+  }
+
+  // css phần data row
+  .base-gridview
+    .dx-datagrid
+    .dx-datagrid-rowsview
+    .dx-row
+    td[role="gridcell"] {
+    padding: 6px !important;
+  }
+
+  // css nhỏ chữ header
+  .dx-header-row td[role="columnheader"] .dx-datagrid-text-content {
+    font-size: 12px !important;
+  }
+
+  // css nhỏ chữ ở row
+  .dx-datagrid .dx-datagrid-headers .dx-row td[role="gridcell"],
+  .dx-datagrid .dx-datagrid-rowsview .dx-row td[role="gridcell"] {
+    font-size: 12px !important;
+  }
+
+  // loại bỏ padding khi edit row
+  .dx-editor-cell .dx-texteditor .dx-texteditor-input {
+    padding: 0 !important;
+  }
+}
+
+// config button medium size  => BButton
+.config_md_btn.dx-button {
+  min-height: 30px !important;
+  height: 30px !important;
+
+  .dx-button-content {
+    font-size: 13px !important;
+    padding: 5px 12px !important;
+  }
+
+  .dx-button-content:has(svg) {
+    padding: 5px 6px !important;
+    svg {
+      margin-right: 0px;
+    }
+  }
+}
+
+.warning-field {
+  // css background td
+  background-color: red;
+  // dành cho numberbox
+  .dx-texteditor-container {
+    background-color: red;
+    border: none !important;
+  }
+  // dành cho selectbox
+  .dx-selectbox-container {
+    .dx-texteditor-input {
+      background-color: red !important;
+    }
+    .dx-dropdowneditor-icon {
+      background-color: red;
+    }
+  }
+}
+
+.config_md_btn:has(svg) {
+  .dx-button-content {
+    width: 41px;
+    min-width: 41px;
+  }
+
+  // width: 34px !important;
+}
+
+// config textfield medium size  => TextField
+.config_md_textbox {
+  .dx-texteditor-container {
+    height: 30px !important;
+  }
+}
+.FormValidate .dx-invalid-message > .dx-overlay-content {
+  width: 300px !important;
+}
+// config textfield medium size  => TextField
+.config_md_selectbox {
+  .dx-texteditor-container {
+    height: 26px !important;
+  }
+}
+
+.config_search_grid {
+  margin-right: 6px;
+}
+
+.config_title_grid {
+  font-size: 14px;
+  margin-right: 14px;
+}
+
+// ==================
+.btn-small .dx-button {
+  min-height: 22px !important;
+  height: 22px !important;
+  .dx-button-content {
+    font-size: 12px !important;
+    padding: 5px 12px !important;
+  }
+}
+/////////////////////////////////////////////////////
+
+// =================================OVERFLOW-Y-HIDDEN-IN-Screen_Admin-NghiepVu===============================
+#overflow-y-hidden-popup-screen-admin {
+  div {
+    .dx-popup-content {
+      overflow-y: hidden !important;
+    }
+  }
+}
+
+/* ====================CUSTOM READONLY COLOR DXSWITCH========================= */
+.dx-switch-custom-readonly .dx-switch-wrapper .dx-switch-container {
+  &::before {
+    background-color: #7fb79d !important;
+  }
+
+  .dx-switch-inner .dx-switch-handle {
+    &::before {
+      background-color: #00703c;
+    }
+  }
+}
+
+.tag-field {
+  height: auto !important;
+}
+
+.save-btn {
+  margin-right: 10px !important;
+}
+
+.dx-start-datebox .dx-texteditor-container {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent;
+}
+
+.dx-end-datebox .dx-texteditor-container {
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+}
+
+.dx-daterangebox-separator {
+  background-color: #fff;
+}
+
+.dx-daterangebox {
+  border-radius: 3px;
+  background-color: transparent !important;
+  border: 0.5px solid #5f7d95 !important;
+}
+
+.dx-state-focused {
+  .dx-daterangebox {
+    border: solid 0.5px #00703c !important;
+  }
+}
+
+.dx-daterangebox.dx-state-hover {
+  background-color: transparent !important;
+  border: 0.5px solid #5f7d95 !important;
+}
+
+.dx-texteditor.dx-editor-filled::after {
+  border-bottom: none !important;
+}
+
+/* ====================END========================= */
+/* ====================CUSTOM HIDDEN LABEL FLAGACTIVE========================= */
+.dx-switch-custom-hidden-label {
+  display: none !important;
+}
+
+/* ====================END========================= */
+.dx-pivotgrid {
+  .dx-pivotgrid-horizontal-headers,
+  .dx-pivotgrid-vertical-headers {
+    span {
+      color: #000000;
+    }
+  }
+}
+
+.dx-pivotgrid-fields-container {
+  .dx-pivotgrid-fields-area-head {
+    .dx-area-field {
+      &.dx-area-box {
+        color: #000000;
+      }
+    }
+  }
+}
+
+.dx-pivotgridfieldchooser-container {
+  .dx-area {
+    .dx-area-fields-header {
+      .dx-area-caption {
+        color: #000000;
+      }
+    }
+  }
+
+  .dx-area-fields {
+    .dx-area-field {
+      &.dx-area-box {
+        color: #000000;
+      }
+    }
+  }
+}
+
+/** custom treeview toggle visibility */
+.sidebar,
+.menu-list {
+  .dx-treeview-toggle-item-visibility {
+    left: unset;
+    right: 0;
+  }
+
+  .dx-treeview-node[aria-level="2"] {
+    .dx-treeview-item-content {
+      padding-left: 20px;
+    }
+  }
+}
+
+/** custom popup title **/
+.dx-popup-normal {
+  .dx-popup-title {
+    &.dx-toolbar {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 14px;
+      background: #ececec;
+    }
+  }
+
+  .dx-popup-bottom {
+    background: #ffffff;
+
+    &.dx-toolbar {
+      border-top: 1px solid $base-border-color;
+      background: #ffffff;
+    }
+  }
+}
+
+.confirmation-box {
+  .dx-popup-bottom.dx-toolbar .dx-toolbar-item {
+    padding: 0 4px 0 0;
+  }
+
+  .dx-popup-title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    background: #ececec;
+  }
+}
+
+/** tagbox filter popup */
+.dx-tagbox-popup-wrapper {
+  .dx-popup-bottom {
+    &.dx-toolbar {
+      .dx-toolbar-center {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/** custom header filter */
+.dx-header-filter-menu {
+  .dx-popup-bottom {
+    &.dx-toolbar {
+      .dx-toolbar-after {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.hidden-header-table {
+  .dx-datagrid-header-panel {
+    display: none !important;
+  }
+}
+
+.dx-datagrid {
+  background: #ffffff !important;
+
+  .dx-datagrid-header-panel {
+    height: 44px !important;
+    background: #ffffff !important;
+
+    .dx-toolbar {
+      background: #ffffff !important;
+      height: 100%;
+
+      .dx-toolbar-items-container {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.dx-calendar-navigator-next-view,
+.dx-calendar-navigator-previous-view {
+  background-color: #fff !important;
+}
+
+.dx-calendar-navigator-next-view:hover .dx-button-content,
+.dx-calendar-navigator-previous-view:hover .dx-button-content {
+  background-color: #e6f8f0 !important;
+}
+
+.dx-button-mode-text.dx-button-default[aria-label="Hủy"] {
+  margin-left: 4px !important;
+  border: 1px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef);
+  color: #0e223d !important;
+}
+
+.dx-button-mode-text.dx-button-default[aria-label="Cancel"] {
+  margin-left: 4px !important;
+  border: 1px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef);
+  color: #0e223d !important;
+}
+
+.dx-button-mode-text.dx-button-default[aria-label="Thoát"] {
+  margin-left: 4px !important;
+  border: 1px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef);
+  color: #0e223d !important;
+}
+
+.dx-button-has-text {
+  background-color: #00703c;
+  color: #ffffff !important;
+  border-radius: 3px !important;
+  margin: 0 4px 0 4px;
+  font-weight: 400;
+}
+
+.dx-button-text {
+  text-transform: none !important;
+  font-size: 13px;
+}
+
+.scrollview___hoverable .dx-scrollbar-vertical.dx-scrollbar-hoverable {
+  transform: translateX(17px) !important;
+}
+
+.dx-list-search {
+  .dx-texteditor-input {
+    padding: 0;
+  }
+}
+
+.dateRange .dx-state-readonly .dx-dropdowneditor-input-wrapper {
+  padding: 0px 0px 2px 0px !important;
+}
+
+.dateRange.dx-state-readonly .dx-daterangebox-separator {
+  background-color: #e9ebf3 !important;
+}
+
+.dx-texteditor.dx-editor-filled .dx-texteditor-input {
+  color: #0e223d;
+  font-weight: 500;
+}
+
+.apply-button {
+  transform: translateX(4px);
+}
+
+.select-button {
+  background-color: #00703c !important;
+  transform: translateX(-5px);
+}
+
+.select-button:hover {
+  background-color: #09492b !important;
+}
+
+.apply-button-wh {
+  background-color: #00703c !important;
+  transform: translateX(6px) !important;
+}
+
+.apply-button .dx-button-content {
+  background-color: #00703c !important;
+}
+
+.apply-button .dx-button-content:hover {
+  background-color: #09492b !important;
+}
+
+.search-pivot-btn {
+  background-color: #00703c !important;
+  margin-right: 8px;
+}
+
+.search-pivot-btn .dx-button-content:hover {
+  background-color: #09492b !important;
+}
+
+.title-wh {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.apply-button-wh:hover {
+  background-color: #09492b !important;
+}
+
+.dx-popup-title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  background: #ececec;
+}
+
+.dx-header-row {
+  td[role="columnheader"] {
+    .dx-datagrid-text-content {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
+      color: #0e223d;
+    }
+  }
+}
+
+.dx-invalid-message {
+  &.dx-invalid-message-bottom {
+    .dx-invalid-message {
+      // control the invalid messages
+    }
+  }
+}
+
+.dx-popup-bottom {
+  &.dx-toolbar {
+    //border-top: 1px solid $base-border-color;
+  }
+}
+
+.dx-popup-content {
+  background-color: #ffffff;
+  margin-bottom: -10px;
+}
+
+.number-text-right .dx-texteditor-input {
+  text-align: right;
+}
+
+.dx-widget {
+  .dx-toolbar-button {
+    .dx-item-content {
+      .toggle-sidebar {
+        .dx-button-content {
+          .dx-icon-menu {
+            &:before {
+              color: #00703c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dx-radiogroup {
+    > .dx-collection {
+      display: flex;
+      gap: 15px;
+    }
+
+    .dx-radiobutton {
+      margin-top: 0;
+    }
+  }
+}
+
+.dx-toolbar {
+  .dx-toolbar-items-container {
+    height: $toolbar-height;
+    overflow: visible;
+  }
+}
+
+// select box
+
+.dx-selectbox-popup-wrapper {
+  .dx-item {
+    &.dx-list-item {
+      background-color: #ffffff;
+      padding: 8px 8px !important;
+
+      &.dx-state-hover {
+        background-color: $base-accent-highlight-color;
+      }
+
+      &.dx-list-item-selected {
+        background-color: $base-accent-highlight-color;
+      }
+    }
+  }
+}
+
+.dx-dropdownbutton-popup-wrapper {
+  .dx-scrollview-content {
+  }
+
+  .dx-item {
+    &.dx-list-item {
+      background-color: #ffffff;
+      padding: 5px;
+
+      &.dx-state-hover {
+        background-color: $base-accent-highlight-color;
+      }
+    }
+  }
+}
+
+.dx-button {
+  min-height: 30px;
+  // width: 100% !important;
+}
+
+.dx-grid {
+  background-color: #ffffff;
+}
+
+.dx-drawer {
+  background-color: #ffffff;
+}
+
+.dx-texteditor {
+  background-color: #ffffff;
+  font-size: 1em;
+  height: 30px;
+
+  &.dx-editor-outlined {
+    border-radius: 2px;
+
+    .dx-texteditor-input {
+      padding: 0;
+    }
+
+    .dx-placeholder {
+      &:before {
+        padding: 0;
+      }
+    }
+  }
+
+  .dx-button {
+    &.dx-button-has-icon:not(.dx-button-has-text) {
+      border: none;
+    }
+  }
+}
+
+.dx-selectbox {
+  .dx-selectbox-container {
+    .dx-texteditor-input-container {
+      input.dx-texteditor-input {
+        background-color: #ffffff;
+        padding: 1px 4px 0px 8px;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.dx-editor-filled {
+  .dx-texteditor-buttons-container {
+    &:last-child {
+      .dx-dropdowneditor-button {
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .dx-dropdowneditor-input-wrapper {
+    .dx-dropdowneditor-button {
+    }
+  }
+}
+
+.dx-datagrid .dx-datagrid-headers .dx-row td[role="columnheader"] {
+  // padding: 13px 13px;
+  padding: 0px;
+}
+
+.dx-list {
+  .dx-item {
+    &.dx-list-item {
+      font-size: 1em;
+
+      &:first-of-type {
+        margin-top: 2px;
+      }
+
+      &:last-of-type {
+        // margin-bottom: 2px;
+      }
+
+      .dx-list-item-content {
+        padding: 3.4px;
+      }
+    }
+  }
+}
+
+.app {
+  background-color: darken($base-bg, 5);
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  .content {
+    line-height: 1.5;
+    flex-grow: 1;
+
+    h2 {
+      font-size: 30px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .container {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    background-color: #ffffff;
+  }
+
+  .layout-body {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .content-block {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+  }
+}
+
+.side-nav-outer-toolbar .dx-drawer {
+  height: calc(100% - 56px);
+}
+
+.screen-x-small .content-block {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.responsive-paddings {
+  padding: 20px;
+
+  .screen-large & {
+    padding: 40px;
+  }
+}
+
+.dx-card.wide-card {
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.dx-layout-manager
+  .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+  padding: 10px 0 10px 0 !important;
+}
+
+.with-footer
+  > .dx-scrollable-wrapper
+  > .dx-scrollable-container
+  > .dx-scrollable-content {
+  height: 100%;
+
+  & > .dx-scrollview-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+}
+
+.tabPanelCustome {
+  .dx-tab {
+    background-color: #ffff;
+  }
+
+  .dx-tab.dx-state-active,
+  .dx-tab.dx-state-active .dx-inkripple-wave {
+    background-color: #ffff !important;
+  }
+
+  .dx-tab.dx-state-focused {
+    background-color: #ffff !important;
+  }
+}
+
+.dx-tab {
+  &.dx-state-hover {
+    background-color: $base-active-color;
+  }
+
+  &.dx-tab-selected {
+  }
+}
+
+$side-panel-min-width: 60px;
+
+html,
+body {
+  margin: 0px;
+  min-height: 100%;
+  height: 100%;
+}
+
+#root {
+  background-color: #fff;
+  height: 100%;
+
+  .dx-tab-content {
+    .dx-tab-text {
+      text-transform: none;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dx-texteditor-input[aria-readonly="true"] {
+  background-color: #e9ebf3 !important;
+  color: #0e223d !important;
+  font-weight: 500;
+}
+
+.dx-texteditor-input-container {
+  background-color: transparent;
+}
+
+.dx-calendar-navigator .dx-calendar-caption-button {
+  background-color: #00703c !important;
+  color: #ffffff !important;
+  margin: 0 8px 0 8px;
+}
+
+.dx-calendar-views-wrapper {
+  background-color: #ffffff;
+}
+
+.dx-popup-inherit-height .dx-popup-content > .dx-widget {
+  background-color: #ffffff;
+}
+
+.dx-dropdowneditor-overlay.dx-popup-wrapper .dx-overlay-content {
+  background-color: #ffffff;
+}
+
+.dx-dropdowneditor-icon {
+  background-color: #ffffff;
+}
+
+.search-car-popup .dx-popup-normal .dx-popup-bottom.dx-toolbar {
+  position: absolute;
+  bottom: 0;
+}
+
+.dx-datagrid .dx-row-alt > td {
+  background: #ffff !important;
+}
+
+.label-center .dx-label-h-align {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.search-car-popup .dx-popup-content {
+  padding: 0 0 0 5px;
+  margin-bottom: 0 !important;
+}
+
+.dx-popup-bottom .dx-toolbar-items-container {
+  background-color: #ffff !important;
+}
+
+.dx-texteditor.dx-state-focused::before {
+  border: none !important;
+}
+
+[aria-label="OK"] {
+  transform: translateX(3px);
+  background-color: #00703c !important;
+}
+
+[aria-label="OK"]:hover {
+  background-color: #09492b !important;
+}
+
+.search-car-popup.cancel-button {
+  margin-left: 2px;
+  border-radius: 3px;
+  border: 0.5px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef) !important;
+  color: #0e223d !important;
+  font-size: 13px;
+}
+
+.search-car-popup .dx-popup-content-scrollable {
+  height: 100%;
+}
+
+.popup-KH .dx-popup-content-scrollable {
+  overflow: hidden;
+}
+
+.popup-customize .dx-popup-content {
+  padding: 4px 16px 16px 16px !important;
+}
+
+.dx-popup-wrapper > .dx-overlay-content {
+  background: #fff !important;
+}
+
+.cancel-button {
+  margin-left: 10px;
+  border-radius: 3px;
+  border: 0.5px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef) !important;
+  color: #0e223d !important;
+  font-size: 13px;
+}
+
+.cancel-button-screen {
+  margin-left: 8px !important;
+  border: 1px solid #5f7d95 !important;
+  background: linear-gradient(#ffffff, #efefef);
+  color: #0e223d !important;
+}
+
+.cancel-button:hover,
+.dx-button-mode-text.dx-button-default[aria-label="Cancel"]:hover,
+.dx-button-mode-text.dx-button-default[aria-label="Hủy"]:hover,
+.cancel-button-screen:hover {
+  border: 1px solid #00703c !important;
+  color: #00703c !important;
+  background-color: #ffff !important;
+}
+
+.dx-button.dx-button-default {
+  border-radius: 3px !important;
+}
+
+.dx-list:not(.dx-list-select-decorator-enabled)
+  .dx-list-item.dx-list-item-selected {
+  background-color: #eaf9f2 !important;
+}
+
+.dx-form {
+  .dx-texteditor {
+    // margin-left: 12px;
+  }
+}
+
+#form-search {
+  .dx-texteditor {
+    // margin-left: 0px !important;
+  }
+}
+
+.popup-fill .dx-popup-content-scrollable {
+  overflow: scroll;
+}
+
+// .dx-texteditor-input {
+//   text-align: left !important; // fix căn phải ô textBox
+// }
+.has-igoss {
+  #root {
+    z-index: revert-layer;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+  }
+}

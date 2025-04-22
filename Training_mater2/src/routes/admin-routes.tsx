@@ -9,6 +9,7 @@ import { Ser_CustomerCarPage } from "@/pages/master/SerCustomerCar/list/SerCusto
 import { Ser_Mst_PartPage } from "@/pages/master/Ser_MST_Part/list/Ser_Mst_Part";
 import { Quan_ly_loai_hang } from "@/pages/master/QuanLyLoaiHang/Quan_Li_Loai_Hang";
 import { Ser_Mst_TradeMarkPage } from "@/pages/master/QuanLyHieuXe/Ser_Mst_TradeMark";
+import { Quan_ly_Model } from "@/pages/master/Model/Model";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -107,6 +108,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <Ser_Mst_TradeMarkPage />,
+    view: "DL",
+  },
+  {
+    key: "Model",
+    path: "admin/Model",
+    subMenuTitle: "Quản lý Model",
+    mainMenuKey: "admin",
+    permissionCode: "",
+    getPageElement: () => <Quan_ly_Model />,
     view: "DL",
   },
 ];

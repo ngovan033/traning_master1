@@ -1,0 +1,191 @@
+.code-cell {
+  user-select: text;
+}
+
+.dx-popup-normal {
+  border-radius: 5px !important;
+
+  .dx-popup-content {
+    padding: 10px 20px !important;
+    min-height: 30px !important;
+  }
+}
+
+#GridviewOne {
+  max-height: calc(100vh - 110px) !important;
+
+  .dx-datagrid {
+    height: 100% !important;
+  }
+}
+
+// edit table
+
+#GridviewOne {
+  .dx-texteditor {
+    height: 24px !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .dx-numberbox {
+    input {
+      text-align: right !important;
+    }
+  }
+}
+
+.table-data-center {
+  text-align: center !important;
+}
+
+td[role="gridcell"].table-data-right {
+  text-align: right !important;
+
+  input {
+    text-align: right !important;
+  }
+}
+.table-data-stt {
+  // background-color: #fff !important;
+}
+
+.dx-freespace-row {
+  .dx-command-select {
+    background-color: #fff !important;
+  }
+}
+
+.dx-dropdownlist-popup-wrapper,
+.dx-datebox-wrapper {
+  border-radius: 0px !important;
+
+  .dx-popup-content {
+    padding: 0px !important;
+    min-height: 0px !important;
+  }
+}
+
+.dx-popup-title {
+  background-color: #ececec !important;
+  height: 43px !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  padding: 0 20px !important;
+
+  .dx-item-content.dx-toolbar-item-content {
+    color: #0e223d;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18.15px;
+    text-align: left;
+    padding: 0px;
+  }
+
+  .dx-toolbar-before {
+    padding: 0px !important;
+  }
+}
+
+.dx-popup-bottom {
+  .dx-toolbar-after {
+    padding: 0 !important;
+
+    .dx-item.dx-toolbar-item.dx-toolbar-button {
+      padding: 0px !important;
+
+      .dx-button {
+        margin-left: 8px !important;
+        margin-right: 0px !important;
+        min-width: unset;
+
+        .dx-button-content {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+.dx-datagrid {
+  .dx-datagrid-rowsview {
+    .dx-datagrid-table {
+      .dx-row[role="row"] {
+        border-top: 1px solid #e8e8e8;
+      }
+    }
+  }
+
+  .dx-editor-cell {
+    background-color: #fff;
+  }
+
+  .dx-selection {
+    background-color: #eaf9f2;
+  }
+
+  .ToolbarButton {
+    margin: 0 8px 0 0;
+    min-width: unset;
+    background-color: #00703c;
+
+    .dx-button-content {
+      padding: 0 20px;
+    }
+  }
+
+  .dx-datagrid-headers,
+  .dx-datagrid-rowsview {
+    .dx-row {
+      td {
+        &[role="columnheader"] {
+          // padding-top: 18px;
+          // padding-bottom: 18px;
+          height: 36px;
+          padding: 0 8px;
+          font-family: Inter;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 15.73px;
+          text-align: left;
+          color: #0e223d;
+        }
+        &[role="gridcell"] {
+          // padding-top: 18px;
+          // padding-bottom: 18px;
+          font-size: 14px;
+          height: 28px;
+          font-family: Inter;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 15.73px;
+          text-align: left;
+          color: #0e223d;
+          padding: 0 8px;
+        }
+        &.dx-pointer-events-none {
+          border: none !important;
+        }
+      }
+      &.dx-data-row {
+        border-top: none;
+        border-bottom: none;
+        &.dx-state-hover {
+          background: #eaf9f2;
+          .dx-command-select {
+            background: #eaf9f2 !important;
+          }
+          td[role="gridcell"] {
+            background: #eaf9f2 !important;
+          }
+        }
+      }
+    }
+  }
+  .dx-freespace-row {
+    td {
+      border: none !important;
+    }
+  }
+}
