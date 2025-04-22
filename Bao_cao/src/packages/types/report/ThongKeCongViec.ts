@@ -1,25 +1,25 @@
 export interface ThongKeCongViec {
-  Lenh: string;
-  BienSoXe: string;
-  MaCongViec: string;
-  CongViec: string;
-  NgayVaoXuong: string;
-  TienCong: string;
-  TrangThai: string;
+  RONO: string;
+  PLATENO: string;
+  SERCODE: string;
+  SERNAME: string;
+  CHECKINDATE: string;
+  AMOUNT: string;
+  STATUSNAME: string;
+  lst_Ser_RO_Statistic_Service : any;
 }
 
 export interface Search_ThongKeCongViec_Params {
-  NgayVaoXuongFrom: string;
-  NgayVaoXuongTo: string;
-  ChoSua: boolean;
-  DangSua: boolean;
-  SuaXong: boolean;
-  KiemTraCuoiCung: boolean;
-  ThanhToanXong: boolean;
-  DaGiaoXe: boolean;
-  LenhHuy: boolean;
-  KhongDung: boolean;
-  FlagDataWH: boolean;
-
-  NgayVaoXuongFromTo: any;
+  FromDate: string;
+  ToDate: string;
+  IsChoSua: any;
+  IsDangSua: any;
+  IsSuaXong: any;
+  IsEnd: any;
+  IsThanhToanXong: any;
+  IsDaGiaoXe: any;
+  IsROReject: any;
+  IsKhongDung: any;
+  FlagDataWH: any;
+  FromDateFromTo: any;
 }

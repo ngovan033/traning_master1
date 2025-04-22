@@ -10,6 +10,8 @@ import { useSer_MST_CustomerType } from "./clientgate/master/Ser_MST_CustomerTyp
 import { useMst_UserManagerApi } from "./clientgate/report/Mst_UserManager";
 import { useReport_ROByDateApi } from "./clientgate/report/ReportROByDate";
 import { useCommonApi } from "./common-api";
+import { useThongKeCongViecApi } from "./clientgate/report/Thong_Ke_Cong_Viec";
+import { useThongKeCongViecTheoToApi } from "./clientgate/report/Thong_Ke_Cong_Viec_TheoTo";
 
 /**
  * Creates an axios instance for making requests to the ClientGate API.
@@ -247,6 +249,8 @@ export const createClientGateApi = (
   const ser_CustomerCarApi = useSer_Customer_CarApi(apiBase);
   const reportROByDateApi = useReport_ROByDateApi(apiBase);
   const mst_userManagerApi = useMst_UserManagerApi(apiBase);
+  const thongkecongviec = useThongKeCongViecApi(apiBase);
+  const thongkecongviecTheoTo = useThongKeCongViecTheoToApi(reportApiBase);
 
   return {
     ...commonApi,
@@ -256,6 +260,8 @@ export const createClientGateApi = (
     ...ser_CustomerCarApi,
     ...reportROByDateApi,
     ...mst_userManagerApi,
+    ...thongkecongviec,
+    ...thongkecongviecTheoTo,
   };
 };
 
