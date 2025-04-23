@@ -273,7 +273,7 @@ export const ReportROByDatePage = () => {
                   customizeText={(itemInfo: {
                     value: string | number | any;
                     valueText: string;
-                  }) => {
+                  }) => {  
                     // const dataSource = gridRef.current.getData();
                     const dblResult = Math.round(+itemInfo.value); // SummaryCommon(dataSource);
                     // const total = dataSource?.reduce(

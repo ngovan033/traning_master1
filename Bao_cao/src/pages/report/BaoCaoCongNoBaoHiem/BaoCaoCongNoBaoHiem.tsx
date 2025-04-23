@@ -1,46 +1,47 @@
-import { useClientgateApi } from "@/packages/api";
-import { useConvertNumber } from "@/packages/common";
 import { AdminContentLayout } from "@/packages/layouts/admin-content-layout";
 import { ContentSearchPanelLayout } from "@/packages/layouts/content-searchpanel-layout";
-import { showErrorAtom } from "@/packages/store";
-import { Search_ThongKeCongViecTheoTo_Params } from "@/packages/types/report/ThongKeCongViecTheoTo";
-import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
 import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch";
-import { format, set } from "date-fns";
-import { Summary, TotalItem } from "devextreme-react/data-grid";
-import Form from "devextreme-react/form";
-import { useSetAtom } from "jotai";
-import { useCallback, useRef } from "react";
-import { useColumns } from "./components/columns";
 import SearchForm from "./search-form/search-form";
+import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
+import { Summary, TotalItem } from "devextreme-react/data-grid";
+import { useCallback, useRef, useState } from "react";
+import { useClientgateApi } from "@/packages/api";
+import { useSetAtom } from "jotai";
+import { showErrorAtom } from "@/packages/store";
+import { Form } from "devextreme-react";
 import { loadPanelAtom } from "@/packages/store/loadPanel-store";
+import { useConvertNumber } from "@/packages/common";
 import usePrint from "@/components/print/usePrint";
+import { Search_SerInvReportInsuranceDebitRpt_Params } from "@/packages/types/report/SerInvReportInsuranceDebitRpt";
+import { format, set } from "date-fns";
+import { useColumns } from "./components/columns";
+import GetDataWH from "@/packages/ui/getDataWH/getDataWH";
 
-export const ThongKeCongViecTheoTo = () => {
+export const BaoCaoCongNoBaoHiem = () => {
   const gridRef: any = useRef();
-  const columns = useColumns();
+  const api = useClientgateApi();
+  // const windowSize = useWindowSize();
+  const showError = useSetAtom(showErrorAtom); // hiển thị lỗi
+  const checkBoxRef = useRef<Form>(null);
+  const formRef = useRef();
   const setLoad = useSetAtom(loadPanelAtom);
   const { quickPrint, previewPrint } = usePrint();
+  const columns = useColumns();
+  const [itemLength, setItemLength] = useState(0);
 
-  const formRef = useRef();
-  const checkBoxRef = useRef<Form>(null);
   const { convertMoneyVND, convertPercent } = useConvertNumber();
-  const showError = useSetAtom(showErrorAtom);
-  const api = useClientgateApi();
-  const searchCondition = useRef<Partial<Search_ThongKeCongViecTheoTo_Params>>({
+  type NewType = Partial<Search_SerInvReportInsuranceDebitRpt_Params>;
+
+  const searchCondition = useRef<NewType>({
     FromDateFromTo: [set(Date.now(), { date: 1 }), new Date()],
-    IsChoSua: true,
-    IsDangSua: true,
-    IsSuaXong: true,
-    IsEnd: true,
-    IsThanhToanXong: false,
-    IsDaGiaoXe: false,
-    IsROReject: false,
-    IsKhongDung: false,
+    DealerCode: "",
     FlagDataWH: false,
   });
+
+  //====================================CallAPI========================================
   const fetchData = async () => {
-    const resp = await api.ThongKeCongViecTheoTo_SearchDL({
+    const resp = await api.SerInvReportInsuranceDebitRpt_SearchDL({
+      DealerCode: "",
       FromDate: searchCondition.current.FromDateFromTo[0]
         ? format(
             searchCondition.current.FromDateFromTo[0] as Date,
@@ -53,23 +54,15 @@ export const ThongKeCongViecTheoTo = () => {
             "yyyy-MM-dd"
           )
         : "",
-      IsChoSua: searchCondition.current.IsChoSua ? "1" : "0",
-      IsDangSua: searchCondition.current.IsDangSua ? "1" : "0",
-      IsSuaXong: searchCondition.current.IsSuaXong ? "1" : "0",
-      IsEnd: searchCondition.current.IsEnd ? "1" : "0",
-      IsThanhToanXong: searchCondition.current.IsThanhToanXong ? "1" : "0",
-      IsDaGiaoXe: searchCondition.current.IsDaGiaoXe ? "1" : "0",
-      IsROReject: searchCondition.current.IsROReject ? "1" : "0",
-      IsKhongDung: searchCondition.current.IsKhongDung ? "1" : "0",
+
       FlagDataWH: searchCondition.current.FlagDataWH ? "1" : "0",
     });
     const pageSize = gridRef?.current?.getDxInstance()?.pageSize();
-    const length =
-      resp?.Data?.lst_Ser_RO_Statistic_Service_ByGroup?.length ?? 0;
+    const length = resp?.Data?.Lst_Ser_InvReportInsuranceDebitRpt?.length ?? 0;
 
     if (resp?.isSuccess) {
       return {
-        DataList: resp?.Data?.lst_Ser_RO_Statistic_Service_ByGroup,
+        DataList: resp?.Data?.Lst_Ser_InvReportInsuranceDebitRpt,
         PageCount: length / pageSize,
         ItemCount: length,
         PageSize: 99999,
@@ -94,6 +87,7 @@ export const ThongKeCongViecTheoTo = () => {
       };
     }
   };
+
   const handleSearch = async (data: any) => {
     searchCondition.current = {
       ...data,
@@ -105,50 +99,11 @@ export const ThongKeCongViecTheoTo = () => {
   const handleSearchWH = () => {
     gridRef?.current?.refetchData();
   };
-  const handleExport = useCallback(async () => {
-    setLoad(true);
-    const resp = await api.ThongKeCongViecTheoTo_ExportDL({
-      FromDate: searchCondition.current.FromDateFromTo[0]
-        ? format(
-            searchCondition.current.FromDateFromTo[0] as Date,
-            "yyyy-MM-dd"
-          )
-        : "",
-      ToDate: searchCondition.current.FromDateFromTo[1]
-        ? format(
-            searchCondition.current.FromDateFromTo[1] as Date,
-            "yyyy-MM-dd"
-          )
-        : "",
-      IsChoSua: searchCondition.current.IsChoSua ? "1" : "0",
-      IsDangSua: searchCondition.current.IsDangSua ? "1" : "0",
-      IsSuaXong: searchCondition.current.IsSuaXong ? "1" : "0",
-      IsEnd: searchCondition.current.IsEnd ? "1" : "0",
-      IsThanhToanXong: searchCondition.current.IsThanhToanXong ? "1" : "0",
-      IsDaGiaoXe: searchCondition.current.IsDaGiaoXe ? "1" : "0",
-      IsROReject: searchCondition.current.IsROReject ? "1" : "0",
-      IsKhongDung: searchCondition.current.IsKhongDung ? "1" : "0",
-      FlagDataWH: searchCondition.current.FlagDataWH ? "1" : "0",
-    });
-    if (resp?.isSuccess) {
-      window.location.href = resp.Data! as any;
-    } else {
-      showError({
-        message: resp._strErrCode,
-        _strErrCode: resp._strErrCode,
-        _strTId: resp._strTId,
-        _strAppTId: resp._strAppTId,
-        _objTTime: resp._objTTime,
-        _strType: resp._strType,
-        _dicDebug: resp._dicDebug,
-        _dicExcs: resp._dicExcs,
-      });
-    }
-    setLoad(false);
-  }, []);
+
   const handlePrint = async () => {
     setLoad(true);
-    const resp = await api.ThongKeCongViecTheoTo_PrintDL({
+    const resp = await api.SerInvReportInsuranceDebitRpt_PrintDL({
+      DealerCode: "",
       FromDate: searchCondition.current.FromDateFromTo[0]
         ? format(
             searchCondition.current.FromDateFromTo[0] as Date,
@@ -161,14 +116,6 @@ export const ThongKeCongViecTheoTo = () => {
             "yyyy-MM-dd"
           )
         : "",
-      IsChoSua: searchCondition.current.IsChoSua ? "1" : "0",
-      IsDangSua: searchCondition.current.IsDangSua ? "1" : "0",
-      IsSuaXong: searchCondition.current.IsSuaXong ? "1" : "0",
-      IsEnd: searchCondition.current.IsEnd ? "1" : "0",
-      IsThanhToanXong: searchCondition.current.IsThanhToanXong ? "1" : "0",
-      IsDaGiaoXe: searchCondition.current.IsDaGiaoXe ? "1" : "0",
-      IsROReject: searchCondition.current.IsROReject ? "1" : "0",
-      IsKhongDung: searchCondition.current.IsKhongDung ? "1" : "0",
       FlagDataWH: searchCondition.current.FlagDataWH ? "1" : "0",
     });
     if (resp?.isSuccess) {
@@ -189,11 +136,47 @@ export const ThongKeCongViecTheoTo = () => {
     }
     setLoad(false);
   };
+  const handleExport = useCallback(async () => {
+    setLoad(true);
+    const resp = await api.SerInvReportInsuranceDebitRpt_ExportDL({
+      DealerCode: "",
+      FromDate: searchCondition.current.FromDateFromTo[0]
+        ? format(
+            searchCondition.current.FromDateFromTo[0] as Date,
+            "yyyy-MM-dd"
+          )
+        : "",
+      ToDate: searchCondition.current.FromDateFromTo[1]
+        ? format(
+            searchCondition.current.FromDateFromTo[1] as Date,
+            "yyyy-MM-dd"
+          )
+        : "",
+
+      FlagDataWH: searchCondition.current.FlagDataWH ? "1" : "0",
+    });
+    if (resp?.isSuccess) {
+      window.location.href = resp.Data! as any;
+    } else {
+      showError({
+        message: resp._strErrCode,
+        _strErrCode: resp._strErrCode,
+        _strTId: resp._strTId,
+        _strAppTId: resp._strAppTId,
+        _objTTime: resp._objTTime,
+        _strType: resp._strType,
+        _dicDebug: resp._dicDebug,
+        _dicExcs: resp._dicExcs,
+      });
+    }
+    setLoad(false);
+  }, []);
+
   return (
     <AdminContentLayout>
       <AdminContentLayout.Slot name={"Header"}>
         <BreadcrumbSearch
-          title={"Báo cáo công việc theo tổ"}
+          title={"Báo cáo công nợ bảo hiểm"}
           showSearch={false}
           buttonOptions={{
             showButtonAdd: false,
@@ -217,6 +200,7 @@ export const ThongKeCongViecTheoTo = () => {
           <ContentSearchPanelLayout.Slot name={"SearchPanel"}>
             <div className={"w-[310px] h-full"}>
               <SearchForm
+                itemLength={itemLength}
                 data={searchCondition.current}
                 onSearch={handleSearch}
               />
@@ -242,9 +226,9 @@ export const ThongKeCongViecTheoTo = () => {
             >
               <Summary>
                 <TotalItem
-                  name="SummaryAmount"
+                  name="SummaryTGD"
                   // cssClass="count__summary"
-                  column={"Amount"}
+                  column={"TGD"}
                   summaryType={"sum"}
                   customizeText={(itemInfo: {
                     value: string | number | any;
@@ -263,11 +247,11 @@ export const ThongKeCongViecTheoTo = () => {
                 ></TotalItem>
               </Summary>
             </GridViewOne>
-            {/* <GetDataWH
+            <GetDataWH
               onSearch={handleSearchWH}
               formRef={formRef}
               checkBoxRef={checkBoxRef}
-            /> */}
+            />
           </ContentSearchPanelLayout.Slot>
         </ContentSearchPanelLayout>
       </AdminContentLayout.Slot>

@@ -506,7 +506,7 @@ export const Ser_CavityPage = () => {
               editMode={false}
               editingOptions={{
                 mode: "row",
-              }}
+              }} 
               // onPageChanged={(number) => onRefetchData(number ?? 0)}
               onRowDeleteBtnClick={handleDelete}
               onDeleteMultiBtnClick={handleDeleteMulti}

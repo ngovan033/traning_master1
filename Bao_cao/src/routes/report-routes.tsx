@@ -1,3 +1,5 @@
+import { BaoCaoCongNoBaoHiem } from "@/pages/report/BaoCaoCongNoBaoHiem/BaoCaoCongNoBaoHiem";
+import { BaoCaoCongNoPhaiThu } from "@/pages/report/BaoCaoCongNoPhaiThu/BaoCaoCongNoPhaiThu";
 import { ReportROByDatePage } from "@/pages/report/ReportROByDate/ReportROByDate";
 import { ThongKeCongViec } from "@/pages/report/ThongKeCongViec/ThongKeCongViec";
 import { ThongKeCongViecTheoTo } from "@/pages/report/ThongKeCongViecTheoTo/ThongKeCongViecTheoTo";
@@ -39,6 +41,24 @@ export const reportRoutes: RouteItem[] = [
     mainMenuKey: "report",
     permissionCode: "",
     getPageElement: () => <ThongKeCongViecTheoTo />,
+    view: "DL",
+  },
+  {
+    key: "BaoCaoCongNoBaoHiem",
+    path: "report/BaoCaoCongNoBaoHiem",
+    subMenuTitle: "Báo cáo công nợ bảo hiểm",
+    mainMenuKey: "report",
+    permissionCode: "",
+    getPageElement: () => <BaoCaoCongNoBaoHiem />,
+    view: "DL",
+  },
+  {
+    key: "BaoCaoCongNoPhaiThu",
+    path: "report/BaoCaoCongNoPhaiThu",
+    subMenuTitle: "Báo cáo công nợ phải thu",
+    mainMenuKey: "report",
+    permissionCode: "",
+    getPageElement: () => <BaoCaoCongNoPhaiThu />,
     view: "DL",
   },
 ];

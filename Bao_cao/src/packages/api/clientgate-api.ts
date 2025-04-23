@@ -12,6 +12,8 @@ import { useReport_ROByDateApi } from "./clientgate/report/ReportROByDate";
 import { useCommonApi } from "./common-api";
 import { useThongKeCongViecApi } from "./clientgate/report/Thong_Ke_Cong_Viec";
 import { useThongKeCongViecTheoToApi } from "./clientgate/report/Thong_Ke_Cong_Viec_TheoTo";
+import { useSerInvReportInsuranceDebitRpttApi } from "./clientgate/report/SerInvReportInsuranceDebitRpt";
+import { useSerReportReceivableDebitRptApi } from "./clientgate/report/SerReportReceivableDebitRpt";
 
 /**
  * Creates an axios instance for making requests to the ClientGate API.
@@ -251,6 +253,8 @@ export const createClientGateApi = (
   const mst_userManagerApi = useMst_UserManagerApi(apiBase);
   const thongkecongviec = useThongKeCongViecApi(apiBase);
   const thongkecongviecTheoTo = useThongKeCongViecTheoToApi(reportApiBase);
+  const serInvReportInsuranceDebitRptApi = useSerInvReportInsuranceDebitRpttApi(reportApiBase)
+  const serReportReceivableDebitRptApi = useSerReportReceivableDebitRptApi(reportApiBase);
 
   return {
     ...commonApi,
@@ -262,6 +266,9 @@ export const createClientGateApi = (
     ...mst_userManagerApi,
     ...thongkecongviec,
     ...thongkecongviecTheoTo,
+    ...serInvReportInsuranceDebitRptApi,
+    ...serReportReceivableDebitRptApi,
+    
   };
 };
 

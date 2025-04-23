@@ -34,7 +34,7 @@ export const useReport_ROByDateApi = (apiBase: AxiosInstance) => {
       return await apiBase.post<
         Partial<Search_ReportROByDate_Params>,
         ApiResponse<ReportROByDate>
-        >("/ReportROByDate/ExportSearchDL", {
+      >("/ReportROByDate/ExportSearchDL", {
         ...param,
       });
     },

@@ -15,29 +15,22 @@ export const  useColumns = () => {
         width: 174,
       },
       {
-        dataField: "PLATENO",
+        dataField: "PlateNo",
         visible: true,
         caption: "Biển số xe",
         width: 115,
       },
       {
-        dataField: "SERCODE",
+        dataField: "SerName",
         visible: true,
-        caption: "Mã công việc",
+        caption: "Công việc",
         // cellRender: (data: any) => {
         //   return <TextMaxLength text={data.data.CUSREQUEST ?? ""} />;
         // },
         width: 136,
       },
-
       {
-        dataField: "SERNAME",
-        visible: true,
-        caption: "Tên công việc",
-        width: 137,
-      },
-      {
-        dataField: "CHECKINDATE",
+        dataField: "CheckInDate",
         visible: true,
         caption: "Ngày vào xưởng",
         width: 156,
@@ -49,13 +42,19 @@ export const  useColumns = () => {
         },
       },
       {
-        dataField: "AMOUNT",
+        dataField: "GroupRName",
+        visible: true,
+        caption: "Tổ thực hiện",
+        width: 145,
+      },
+      {
+        dataField: "Amount",
         visible: true,
         caption: "Tiền công",
         width: 145,
       },
       {
-        dataField: "STATUSNAME",
+        dataField: "StatusName",
         visible: true,
         caption: "Trạng thái",  
         width: 108,
