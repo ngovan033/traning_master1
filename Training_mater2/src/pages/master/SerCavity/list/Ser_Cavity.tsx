@@ -21,7 +21,7 @@ import { showErrorAtom } from "@packages/store";
 import { format } from "date-fns";
 import { DataGrid } from "devextreme-react";
 import { useSetAtom } from "jotai";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { match } from "ts-pattern";
 import { useGridColumns } from "../components/use-columns";
@@ -30,6 +30,7 @@ import { useGetTime } from "./../../../../packages/hooks/useGetTime";
 
 import { useDialog } from "@/packages/hooks/useDiaglog";
 import SearchForm from "../search-form/search-form";
+import { GridCustomerToolBarItem } from "@/packages/components/gridview-standard/grid-custom-toolbar";
 
 export const Ser_CavityPage = () => {
   const { t } = useI18n("Ser_Cavity");
@@ -40,6 +41,9 @@ export const Ser_CavityPage = () => {
   const config = useConfiguration();
   const { showDialog } = useDialog();
   const { isHTV } = usePermissions();
+  const [isAsc, setIsAsc] = useState(true); // mặc định A-Z
+  const isAscendingRef = useRef(true);
+  const [dataSource, setDataSource] = useState<any[]>([]); // nếu bạn chưa có
   const showError = useSetAtom(showErrorAtom);
   const dataSourcePopup = useMstLocationDataSource();
   const searchCondition = useRef<Partial<Search_Ser_Cavity_Param>>({
@@ -467,11 +471,61 @@ export const Ser_CavityPage = () => {
   };
 
   const handleDetail = (data: any) => {
+    console.log(data);
+    
     popupRef.current?.showPopup({
       type: "detail",
       data: data,
     });
   };
+  const handleOrderBy = async (
+    selectedData: any[],
+    selectedKeys: any[],
+    ref: any
+  ) => {
+    if (selectedData.length === 0) {
+      showDialog({
+        title: "Thông báo",
+        message: "Vui lòng chọn dữ liệu để sắp xếp!",
+      });
+      return;
+    }
+
+    const sortedList = [...selectedData].sort((a, b) => {
+      const codeA = a.TradeMarkCode?.toUpperCase() ?? "";
+      const codeB = b.TradeMarkCode?.toUpperCase() ?? "";
+
+      return isAsc
+        ? codeA.localeCompare(codeB) // A-Z
+        : codeB.localeCompare(codeA); // Z-A
+    });
+
+    setIsAsc(!isAsc);
+    setDataSource(sortedList); // cập nhật lại bảng với danh sách đã sắp xếp
+
+    setTimeout(() => {
+      ref?.current?._instance?.selectRows(selectedKeys, false); // khôi phục lại selected
+    }, 100);
+  };
+  const toolbarItems: GridCustomerToolBarItem[] = [
+    {
+      text: "Sắp xếp",
+      onClick: async (e: any, ref: any) => {
+        if (ref) {
+          const selectedData =
+            ref?.current?._instance?.getSelectedRowsData() ?? [];
+          const selectedKeys =
+            ref?.current?._instance?.getSelectedRowKeys() ?? [];
+
+          await handleOrderBy(selectedData, selectedKeys, ref);
+        }
+      },
+      shouldShow: (ref: any) => {
+        return true;
+      },
+    },
+  ];
+
   return (
     <AdminContentLayout className={"dealer-management"}>
       <AdminContentLayout.Slot name={"Header"}>
@@ -497,16 +551,16 @@ export const Ser_CavityPage = () => {
               ref={gridRef}
               dataSource={[]} // cars
               columns={columns}
-              isHiddenCheckBox
+              // isHiddenCheckBox
               fetchData={fetchData}
               showSTT={true}
               autoFetchData={true}
               allowSelection={false}
-              customToolbarItems={[]}
+              customToolbarItems={toolbarItems}
               editMode={false}
               editingOptions={{
                 mode: "row",
-              }} 
+              }}
               // onPageChanged={(number) => onRefetchData(number ?? 0)}
               onRowDeleteBtnClick={handleDelete}
               onDeleteMultiBtnClick={handleDeleteMulti}

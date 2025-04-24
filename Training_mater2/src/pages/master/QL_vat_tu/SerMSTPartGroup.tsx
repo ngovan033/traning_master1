@@ -2,10 +2,10 @@ import { useI18n } from "@/i18n/useI18n";
 import { useClientgateApi } from "@/packages/api";
 import { FORMAT_NUMBER } from "@/packages/common/Validation_Rules";
 import { useConfiguration } from "@/packages/hooks";
-import { AdminContentLayout } from "@/packages/layouts/admin-content-layout"
+import { AdminContentLayout } from "@/packages/layouts/admin-content-layout";
 import { showErrorAtom } from "@/packages/store";
 import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
-import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch"
+import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch";
 import { LinkCell } from "@/packages/ui/link-cell";
 import { ColumnOptions } from "@/types";
 import { useSetAtom } from "jotai";
@@ -16,8 +16,6 @@ import { GridCustomerToolBarItem } from "@/packages/components/gridview-standard
 import { toast } from "react-toastify";
 import { useDialog } from "@/packages/hooks/useDiaglog";
 
-
-
 export const SerMSTPartGroup = () => {
   const api = useClientgateApi(); // lấy danh sách api
   const showError = useSetAtom(showErrorAtom); // hiển thị lỗi
@@ -27,7 +25,6 @@ export const SerMSTPartGroup = () => {
   const gridRef: any = useRef(null);
   const { showDialog } = useDialog();
   const searchCondition = useRef<any>({
-
     ParentID: "",
     GroupCode: "",
     GroupName: "",
@@ -44,7 +41,6 @@ export const SerMSTPartGroup = () => {
       Ft_PageIndex: gridRef?.current?.getDxInstance().pageIndex() ?? 0,
       Ft_PageSize: gridRef?.current?.getPageSize(), // gridRef?.current?.getDxInstance().pageSize() ?? 100,
     });
-    console.log(resp);
 
     if (resp?.isSuccess) {
       return resp;
@@ -88,7 +84,6 @@ export const SerMSTPartGroup = () => {
       dataType: "number",
       format: FORMAT_NUMBER.FLOAT_NUMBER_R2,
     },
-
   ];
   const handleSearch = (keyword: string) => {
     searchCondition.current.GroupName = keyword;
@@ -97,13 +92,12 @@ export const SerMSTPartGroup = () => {
   const onRefetchData = async (number?: number) => {
     gridRef.current?.refetchData(number);
   };
-  const handleDetail = (data) => {
+  const handleDetail = (data : any) => {
     popupRef.current?.showPopup({
       type: "detail",
       data: data,
     });
     console.log(data);
-
   };
   const handleAdd = () => {
     popupRef.current?.showPopup({
@@ -117,56 +111,94 @@ export const SerMSTPartGroup = () => {
     });
   };
   const handleDelete = async (listSelected: any[]) => {
-      if (listSelected.length == 0) {
-        showDialog({
-          title: "Thông báo",
-          message: "Vui lòng chọn dữ liệu để xóa!",
-        });
-  
-        return;
-      }
-  
-      await Promise.all(
-        listSelected.map((item) => {
-          return api.SerMSTPartGroup_Delete(item.PartGroupID);
-        })
-      ).then((responses) => {
-        const allSuccess = responses.every((response) => response.isSuccess);
-  
-        if (allSuccess) {
-          toast.success("Xóa thành công!");
-        } else {
-          const firstError = responses.find((response) => !response.isSuccess);
-          showError({
-            message: t(firstError!._strErrCode),
-            _strErrCode: firstError!._strErrCode,
-            _strTId: firstError!._strTId,
-            _strAppTId: firstError!._strAppTId,
-            _objTTime: firstError!._objTTime,
-            _strType: firstError!._strType,
-            _dicDebug: firstError!._dicDebug,
-            _dicExcs: firstError!._dicExcs,
-          });
-        }
+    if (listSelected.length == 0) {
+      showDialog({
+        title: "Thông báo",
+        message: "Vui lòng chọn dữ liệu để xóa!",
       });
-      gridRef.current?.refetchData();
-    };
+
+      return;
+    }
+
+    await Promise.all(
+      listSelected.map((item) => {
+        return api.SerMSTPartGroup_Delete(item.PartGroupID);
+      })
+    ).then((responses) => {
+      const allSuccess = responses.every((response) => response.isSuccess);
+
+      if (allSuccess) {
+        toast.success("Xóa thành công!");
+      } else {
+        const firstError = responses.find((response) => !response.isSuccess);
+        showError({
+          message: t(firstError!._strErrCode),
+          _strErrCode: firstError!._strErrCode,
+          _strTId: firstError!._strTId,
+          _strAppTId: firstError!._strAppTId,
+          _objTTime: firstError!._objTTime,
+          _strType: firstError!._strType,
+          _dicDebug: firstError!._dicDebug,
+          _dicExcs: firstError!._dicExcs,
+        });
+      }
+    });
+    gridRef.current?.refetchData();
+  };
   const toolbarItems: GridCustomerToolBarItem[] = [
-      {
-        text: "Xóa",
-        onClick: async (e: any, ref: any) => {
-          if (ref) {
-            const selectedData =
-              ref?.current?._instance?.getSelectedRowsData() ?? [];
-  
-            await handleDelete(selectedData);
-          }
-        },
-        shouldShow: (ref: any) => {
-          return true;
-        },
+    {
+      text: "Xóa",
+      onClick: async (e: any, ref: any) => {
+        if (ref) {
+          const selectedData =
+            ref?.current?._instance?.getSelectedRowsData() ?? [];
+
+          await handleDelete(selectedData);
+        }
       },
-    ];
+      shouldShow: (ref: any) => {
+        return true;
+      },
+    },
+    {
+      text: "Sắp xếp ",
+      onClick: async (e: any, ref: any) => {
+        if (ref) {
+          const instance = ref?.current?._instance;
+          console.log(instance);
+          
+          const dataSource = instance?.getDataSource();
+          console.log(dataSource);
+          
+          const allData = dataSource.items() ?? [];
+          const selectedData = instance?.getSelectedRowsData() ?? [];
+          const isAscending = ref.current.isAscending ?? true;
+
+          const sortedData = [...selectedData].sort((a, b) =>
+            isAscending
+              ? a.GroupCode.localeCompare(b.GroupCode)
+              : b.GroupCode.localeCompare(a.GroupCode)
+          );
+          const selectedGroupCodes = new Set(
+            selectedData.map((item: any) => item.GroupCode)
+          );
+          const unselectedData = allData.filter(
+            (item: any) => !selectedGroupCodes.has(item.GroupCode)
+          );
+          const newData = [...sortedData, ...unselectedData];
+          ref.current.isAscending = !isAscending;
+          dataSource.store().clear();
+          newData.forEach((item) => {
+            dataSource.store().insert(item);
+          });
+
+          instance.refresh();
+        }
+      },
+      shouldShow: (ref: any) => true,
+    },
+  ];
+
   return (
     <AdminContentLayout>
       <AdminContentLayout.Slot name="Header">
@@ -204,5 +236,5 @@ export const SerMSTPartGroup = () => {
         ></PopupPartGroup>
       </AdminContentLayout.Slot>
     </AdminContentLayout>
-  )
-}
+  );
+};

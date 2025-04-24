@@ -22,7 +22,8 @@ export const useGridColumns = ({ data, popupRef }: UseGridColumnsProps) => {
       },
       columnIndex: 1, // Vị trí cột
       groupKey: "CUSTOMER_INFORMATION", // Nhóm cột
-      visible: true, // Cột có hiển thị hay không
+      visible: true,
+      
     },
     {
       dataField: "CusName", // Tên khách hàng

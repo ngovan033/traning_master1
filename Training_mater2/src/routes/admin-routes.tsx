@@ -10,6 +10,7 @@ import { Ser_Mst_PartPage } from "@/pages/master/Ser_MST_Part/list/Ser_Mst_Part"
 import { Quan_ly_loai_hang } from "@/pages/master/QuanLyLoaiHang/Quan_Li_Loai_Hang";
 import { Ser_Mst_TradeMarkPage } from "@/pages/master/QuanLyHieuXe/Ser_Mst_TradeMark";
 import { Quan_ly_Model } from "@/pages/master/Model/Model";
+import { Ser_CustomerCarUpdate } from "@/pages/master/SerCustomerCar/list/Ser_updateCar";
 
 export const adminRoutes: RouteItem[] = [
   {
@@ -82,6 +83,15 @@ export const adminRoutes: RouteItem[] = [
     permissionCode: "",
     getPageElement: () => <Ser_CustomerCarPage />,
     view: "DL",
+  },
+  {
+    key: "SerCustomerCar",
+    path: "admin/Ser_CustomerCar/manageSer_CustomerCar/:type?/:CusID?",
+    subMenuTitle: "",
+    mainMenuKey: "admin",
+    permissionCode: "MNU_QT_DL_DANHSACHKHACHHANG",
+    getPageElement: () => <Ser_CustomerCarUpdate />,
+    
   },
   {
     key: "Ser_MST_Part",

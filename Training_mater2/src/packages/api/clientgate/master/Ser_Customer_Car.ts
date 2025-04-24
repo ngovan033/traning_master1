@@ -10,6 +10,17 @@ export const useSer_CustomerCarApi = (apiBase: AxiosInstance) => {
         {}
       );
     },
+    Ser_Customer_SearchDL: async (
+      params: Partial<SearchSer_CustomerCarParam>
+    ): Promise<ApiResponse<Ser_CustomerCar>> => {
+      return await apiBase.post<
+        Partial<SearchSer_CustomerCarParam>,
+        ApiResponse<Ser_CustomerCar>
+      >("/SerCustomer/SerCustomerCarSearchDL", {
+        ...params,
+        // Ft_PageSize: params.Ft_PageSize == 0 ? 100 : params.Ft_PageSize
+      });
+    },
     Ser_CustomerCar_SearchDL: async (
       params: Partial<SearchSer_CustomerCarParam>
     ): Promise<ApiResponse<Ser_CustomerCar>> => {

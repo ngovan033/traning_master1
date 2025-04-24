@@ -3,7 +3,7 @@ import { ContentSearchPanelLayout } from "@/packages/layouts/content-searchpanel
 import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch";
 import SearchForm from "./search-form/search-form";
 import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { DataGrid } from "devextreme-react";
 import { useGridColumns } from "./components/use-columns";
 import { useSetAtom } from "jotai";
@@ -28,7 +28,7 @@ export const Quan_ly_Model = () => {
   const api = useClientgateApi();
   const dataMST_MstTradeMark = useMstModelDataSource();
   const { showDialog } = useDialog();
-
+  const [isAsc, setIsAsc] = useState(true); // mặc định A-Z
   const searchCondition = useRef<Partial<Search_Ser_MST_Model>>({
     Ft_PageIndex: 0,
     Ft_PageSize: 100,
@@ -40,7 +40,6 @@ export const Quan_ly_Model = () => {
     const resp = await api.Ser_MST_Model_SearchDL({
       TradeMarkCode: searchCondition.current?.TradeMarkCode ?? "",
       ModelName: searchCondition.current?.ModelName ?? "",
-
       Ft_PageIndex: gridRef?.current?.getDxInstance().pageIndex() ?? 0,
       Ft_PageSize: gridRef?.current?.getPageSize(), // gridRef?.current?.getDxInstance().pageSize() ?? 100,
     });
@@ -231,8 +230,50 @@ export const Quan_ly_Model = () => {
       shouldShow: (ref: any) => {
         return true;
       },
-    },  
+    },
+    {
+      text: "Sắp xếp",
+      onClick: async (e: any, ref: any) => {
+        if (ref) {
+          const selectedData =
+            ref?.current?._instance?.getSelectedRowsData() ?? [];
+         console.log("selectedData", selectedData);
+         
+          await handleOrderBy(selectedData);
+        }
+      },
+      shouldShow: (ref: any) => {
+        return true;
+      },
+    },
   ];
+  const handleOrderBy = async (listSelected: any[]) => {
+    if (listSelected.length === 0) {
+      showDialog({
+        title: "Thông báo",
+        message: "Vui lòng chọn dữ liệu để sắp xếp!",
+      });
+      return;
+    }
+  
+    const sortedList = [...listSelected].sort((a, b) => {
+      const codeA = a.TradeMarkCode?.toUpperCase() ?? '';
+      const codeB = b.TradeMarkCode?.toUpperCase() ?? '';
+  
+      return isAsc
+        ? codeA.localeCompare(codeB) // A-Z
+        : codeB.localeCompare(codeA); // Z-A
+    });
+  
+    console.log("sortedList", sortedList);
+  
+   
+    setIsAsc(!isAsc);
+    await onRefetchData();
+ 
+  };
+  
+  
   const handleDetail = (data: any) => {
     popupRef.current?.showPopup({
       type: "detail",
