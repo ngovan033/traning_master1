@@ -329,15 +329,20 @@ export const Ser_CustomerCarPage = () => {
       visible: true, // Cột có hiển thị hay không
     },
   ];
+
+  const handleAdd = () => {
+    navigate("/admin/Ser_CustomerCar/manageSer_CustomerCar/new");
+  };
   return (
     <AdminContentLayout className={"dealer-management"}>
       <AdminContentLayout.Slot name={"Header"}>
         <BreadcrumbSearch
+        
           title="Quản lý thông tin khách hàng "
           showSearch={false}
           buttonOptions={{
             showButtonAdd: true,
-            // onClickButtonAdd: handleAdd,
+            onClickButtonAdd: handleAdd,
           }}
         ></BreadcrumbSearch>
       </AdminContentLayout.Slot>

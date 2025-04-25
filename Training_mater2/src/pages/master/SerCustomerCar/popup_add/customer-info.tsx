@@ -327,73 +327,73 @@ export const CustomerInfo = ({
     }
   };
 
-  const handleView = async () => {
-    // Không có ID KH hoặc không có Thông tin xe mặc dù có ID KH => Show thông báo k tìm thấy
-    if (!dataView?.CustomerInfo?.CusID || dataView.CarInfo.length === 0) {
-      DialogMessage({
-        strHtml: t("KhongTimThayKHHoacKHChuaCoThongTinXe"),
-        title: t("Warning"),
-      });
-      return;
-    }
+  // const handleView = async () => {
+  //   // Không có ID KH hoặc không có Thông tin xe mặc dù có ID KH => Show thông báo k tìm thấy
+  //   if (!dataView?.CustomerInfo?.CusID || dataView.CarInfo.length === 0) {
+  //     DialogMessage({
+  //       strHtml: t("KhongTimThayKHHoacKHChuaCoThongTinXe"),
+  //       title: t("Warning"),
+  //     });
+  //     return;
+  //   }
 
-    setLoad(true);
-    const response = await api.SerCustomerCar_QLCongNoKhachHang_GetByCusID(
-      dataView?.CustomerInfo?.CusID
-    );
-    if (response.isSuccess && response?.Data) {
-      setFormDebit({
-        lst_Ser_Customer: {
-          CusID:
-            response.Data.lst_Ser_Customer[0].CusID ??
-            dataView?.CustomerInfo?.CusID, // để chống dữ liệu null do api còn lỗi đoạn trả ra CusID
-          CusName: response.Data.lst_Ser_Customer[0].CusName,
-          Address: response.Data.lst_Ser_Customer[0].Address,
-          TotalDebitAmount:
-            sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) ??
-            0,
-          TotalPaymentAmount:
-            sumBy(
-              response.Data?.lst_Ser_Payment,
-              (o: any) => o.PaymentAmount
-            ) ?? 0,
-          TotalDebt: Math.ceil(
-            sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) -
-              sumBy(
-                response.Data?.lst_Ser_Payment,
-                (o: any) => o.PaymentAmount
-              ) >
-              0
-              ? sumBy(
-                  response.Data?.lst_Ser_CusDebit,
-                  (o: any) => o.DebitAmount
-                ) -
-                  sumBy(
-                    response.Data?.lst_Ser_Payment,
-                    (o: any) => o.PaymentAmount
-                  )
-              : 0
-          ), // TotalDebt:
-          //   sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) -
-          //   sumBy(response.Data?.lst_Ser_Payment, (o: any) => o.PaymentAmount),
-        },
-        lst_Ser_CusDebit: response.Data.lst_Ser_CusDebit,
-        lst_Ser_Payment: response.Data.lst_Ser_Payment,
-      });
-    } else {
-      showError({
-        message: t(response._strErrCode),
-        _strErrCode: response._strErrCode,
-        _strTId: response._strTId,
-        _strAppTId: response._strAppTId,
-        _objTTime: response._objTTime,
-        _strType: response._strType,
-        _dicDebug: response._dicDebug,
-        _dicExcs: response._dicExcs,
-      });
-    }
-    setLoad(false);
-  };
+  //   setLoad(true);
+  //   const response = await api.SerCustomerCar_QLCongNoKhachHang_GetByCusID(
+  //     dataView?.CustomerInfo?.CusID
+  //   );
+  //   if (response.isSuccess && response?.Data) {
+  //     setFormDebit({
+  //       lst_Ser_Customer: {
+  //         CusID:
+  //           response.Data.lst_Ser_Customer[0].CusID ??
+  //           dataView?.CustomerInfo?.CusID, // để chống dữ liệu null do api còn lỗi đoạn trả ra CusID
+  //         CusName: response.Data.lst_Ser_Customer[0].CusName,
+  //         Address: response.Data.lst_Ser_Customer[0].Address,
+  //         TotalDebitAmount:
+  //           sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) ??
+  //           0,
+  //         TotalPaymentAmount:
+  //           sumBy(
+  //             response.Data?.lst_Ser_Payment,
+  //             (o: any) => o.PaymentAmount
+  //           ) ?? 0,
+  //         TotalDebt: Math.ceil(
+  //           sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) -
+  //             sumBy(
+  //               response.Data?.lst_Ser_Payment,
+  //               (o: any) => o.PaymentAmount
+  //             ) >
+  //             0
+  //             ? sumBy(
+  //                 response.Data?.lst_Ser_CusDebit,
+  //                 (o: any) => o.DebitAmount
+  //               ) -
+  //                 sumBy(
+  //                   response.Data?.lst_Ser_Payment,
+  //                   (o: any) => o.PaymentAmount
+  //                 )
+  //             : 0
+  //         ), // TotalDebt:
+  //         //   sumBy(response.Data?.lst_Ser_CusDebit, (o: any) => o.DebitAmount) -
+  //         //   sumBy(response.Data?.lst_Ser_Payment, (o: any) => o.PaymentAmount),
+  //       },
+  //       lst_Ser_CusDebit: response.Data.lst_Ser_CusDebit,
+  //       lst_Ser_Payment: response.Data.lst_Ser_Payment,
+  //     });
+  //   } else {
+  //     showError({
+  //       message: t(response._strErrCode),
+  //       _strErrCode: response._strErrCode,
+  //       _strTId: response._strTId,
+  //       _strAppTId: response._strAppTId,
+  //       _objTTime: response._objTTime,
+  //       _strType: response._strType,
+  //       _dicDebug: response._dicDebug,
+  //       _dicExcs: response._dicExcs,
+  //     });
+  //   }
+  //   setLoad(false);
+  // };
 
   const handleChangeProvince = async (e: any) => {
     if (!e) {
@@ -474,7 +474,7 @@ export const CustomerInfo = ({
         />
       )}
       <div className="flex items-center gap-4 mt-2 mb-2">
-        <p className="text-base font-bold">{t("Thông tin chủ xe")}</p>
+        <p className="text-base font-bold">{"Thông tin chủ xe"}</p>
         <CheckBox
           ref={checkBoxRef}
           text={t("Khách hàng cũng là người liên lạc")}
@@ -1298,7 +1298,7 @@ export const CustomerInfo = ({
           <div className="separator"></div>
           <div className="flex items-center gap-4 mt-2">
             <p className="text-base font-bold">
-              {t("Thông tin người liên hệ")}
+              {"Thông tin người liên hệ"}
             </p>
           </div>
         </>

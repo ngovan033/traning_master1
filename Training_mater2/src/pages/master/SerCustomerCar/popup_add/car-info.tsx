@@ -1,4 +1,4 @@
-import { useI18n } from "@/i18n/useI18n";
+ import { useI18n } from "@/i18n/useI18n";
 import { BButton } from "@/packages/components/buttons";
 import { useWindowSize } from "@/packages/hooks/useWindowSize";
 import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
@@ -13,7 +13,7 @@ import { dataViewAtom } from "../components/store";
 import { toast } from "react-toastify";
 import { loadPanelAtom } from "@/packages/store/loadPanel-store";
 import { showErrorAtom } from "@/packages/store";
-import { PopupViewHistory } from "../popup_view_history/popup_view_history";
+// import { PopupViewHistory } from "../popup_view_history/popup_view_history";
 import ConfirmComponent from "@/packages/components/ConfirmComponent";
 import { useDialog } from "@/packages/hooks/useDiaglog";
 

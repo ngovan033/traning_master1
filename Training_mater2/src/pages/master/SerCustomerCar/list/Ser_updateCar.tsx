@@ -9,8 +9,62 @@ import { loadPanelAtom } from "@/packages/store/loadPanel-store";
 import { useClientgateApi } from "@/packages/api";
 import { CustomerInfo } from "../popup_add/customer-info";
 import { useNetworkNavigate } from "@/packages/hooks";
+import { ToggleSidebarButton } from "@/packages/ui/toggle-sidebar-button";
+import { Icon } from "@/packages/ui/icons";
+import { BButton, BButtonProps } from "@/packages/components/buttons";
+import { CarInfo } from "../popup_add/car-info";
 
+interface HeaderProps {
+  rightButtons: BButtonProps[]; 
+}
 
+const Header = ({ rightButtons }: HeaderProps) => {
+
+  const { type, code } = useParams();
+  // const navigate = useNetworkNavigate();
+  const navigate = useNetworkNavigate();
+  const handleGoBack = () => {
+    // navigate("/admin/Ser_CustomerCar");
+    navigate("/admin/SerCustomerCar", { replace: true });
+  };
+  return (
+    <div className="flex items-center ">
+      <div>
+        <ToggleSidebarButton />
+      </div>
+
+      <div className="w-full flex items-center justify-between h-[44px] px-[14px]  page-header">
+        <div className={"flex items-center justify-center"}>
+          <div
+            className={
+              "screen text-[#5F7D95] font-[400] text-[14px] hover:cursor-pointer"
+            }
+            onClick={handleGoBack}
+          >
+            {"Quản lý khách hàng"}
+          </div>
+          <Icon name={"chevronRight"} className={"mx-2"} />
+          <div
+            className={
+              "screen screen-leaf text-[#0E223D] text-[14px] font-[600]"
+            }
+          >
+            {type === "new" ? (
+              <>{"Tạo mới khách hàng"}</>
+            ) : (
+              <>{"Sửa thông tin khách hàng"}</>
+            )}
+          </div>
+        </div>
+        <div>
+          {rightButtons.map((button, idx) => (
+            <BButton isMdSize key={idx} {...button} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 export const Ser_CustomerCarUpdate = () => {
   const { type, CusID } = useParams();
   const [dataView, setDataView] = useAtom(dataViewAtom);
@@ -47,24 +101,49 @@ export const Ser_CustomerCarUpdate = () => {
   };
   const windowSize = useWindowSize();
   const handleCancel = () => {
-    networkNavigate("/admin/Ser_CustomerCar", { replace: true });
+    networkNavigate("/admin/SerCustomerCar", { replace: true });
   };
   useEffect(() => {
-    // if (!dataView?.CustomerInfo?.CusID && type === "edit") {
-    // networkNavigate("/admin/Ser_CustomerCar", { replace: true });
-    // }
+    if (!dataView?.CustomerInfo?.CusID && type === "edit") {
+    networkNavigate("/admin/SerCustomerCar", { replace: true });
+    }
 
     if (type === "edit" && CusID) {
       fetchDataAsync(CusID);
     }
 
   }, []);
+  const rightButtons: BButtonProps[] = [
+    {
+      validationGroup: "main",
+      visible: type === "new",
+      label: "Lưu",
+      permissionCode: "BTN_QT_DL_DANHSACHKHACHHANG_TAOMOI",
+      // onClick: handleCreateNew,
+      className: "px-[4px]",
+    },
+    {
+      validationGroup: "main",
+      visible: type === "edit",
+      label: "Lưu",
+      permissionCode: "BTN_QT_DL_DANHSACHKHACHHANG_CT_SUA",
+      // onClick: handleUpdate,
+      className: "px-[4px]",
+    },
+    {
+      label: "Đóng",
+      className: "p-0 cancel-button",
+      type: "normal",
+      stylingMode: "outlined",
+      onClick: handleCancel,
+    },
+  ];
   return (
     <div>
       <div>
-        {/* <div className="">
+        <div className="">
           <Header rightButtons={rightButtons} />
-        </div> */}
+        </div>
         <div className="separator"></div>
         <div className="mt-[10px] px-2 ">
           {type === "edit" && !dataView.CustomerInfo.CusID && (
