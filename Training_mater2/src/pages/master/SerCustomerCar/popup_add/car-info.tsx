@@ -1,4 +1,4 @@
- import { useI18n } from "@/i18n/useI18n";
+import { useI18n } from "@/i18n/useI18n";
 import { BButton } from "@/packages/components/buttons";
 import { useWindowSize } from "@/packages/hooks/useWindowSize";
 import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
@@ -36,7 +36,6 @@ export const CarInfo = forwardRef(({}: ICarInfoProps, ref: any) => {
   const { showDialog } = useDialog();
   const dataGridCarRef = useRef<any>(null);
   const carInfoRef = useRef<any>(null);
-
   const addCarPopupRef = useRef<any>(null);
   const viewHistoryPopupRef = useRef<any>(null);
 
@@ -137,7 +136,7 @@ export const CarInfo = forwardRef(({}: ICarInfoProps, ref: any) => {
         let flagCheckDel = false;
         for (let item of lst) {
           if (item?.IsActive === "1") {
-            const resp = await api.Ser_CustomerCar_SerCarDelete({
+            const resp = await api.Ser_CustomerCar_Delete({
               CusID: item?.CusID,
               CarID: item?.CarID,
             });
@@ -260,25 +259,25 @@ export const CarInfo = forwardRef(({}: ICarInfoProps, ref: any) => {
 
   // mở popup tra cứu lịch sử
   const handleViewHistory = async (formCarData: any) => {
-    const gridRef = viewHistoryPopupRef?.current.getGridViewOneRef();
-    viewHistoryPopupRef?.current.setSearchCondition({
-      PlateNo: formCarData.PlateNo,
-      FrameNo: formCarData.FrameNo,
-      Ft_PageIndex: 0,
-      Ft_PageSize: gridRef.current.getDxInstance().pageSize() ?? 100, //configuration.MAX_PAGE_ITEMS,
-      FlagDataWH: false, // convert "1", "0" ở hàm gọi API
-    });
-    setLoad(true);
-    const response = await api.DealerHistoryShareMng_SearchDL({
-      PlateNo: formCarData.PlateNo,
-      FrameNo: formCarData.FrameNo,
-      FlagDataWH: false, // convert "1", "0" ở hàm gọi API
-      Ft_PageIndex: 0, // gridRef.current.getDxInstance().pageIndex() ??
-      Ft_PageSize: gridRef.current.getDxInstance().pageSize() ?? 100, // configuration.MAX_PAGE_ITEMS, // gridRef.current.getDxInstance().pageSize() ?? ,
-    });
-    setLoad(false);
-    gridRef?.current.setPageData(response);
-    viewHistoryPopupRef?.current.show();
+    // const gridRef = viewHistoryPopupRef?.current.getGridViewOneRef();
+    // viewHistoryPopupRef?.current.setSearchCondition({
+    //   PlateNo: formCarData.PlateNo,
+    //   FrameNo: formCarData.FrameNo,
+    //   Ft_PageIndex: 0,
+    //   Ft_PageSize: gridRef.current.getDxInstance().pageSize() ?? 100, //configuration.MAX_PAGE_ITEMS,
+    //   FlagDataWH: false, // convert "1", "0" ở hàm gọi API
+    // });
+    // setLoad(true);
+    // const response = await api.DealerHistoryShareMng_SearchDL({
+    //   PlateNo: formCarData.PlateNo,
+    //   FrameNo: formCarData.FrameNo,
+    //   FlagDataWH: false, // convert "1", "0" ở hàm gọi API
+    //   Ft_PageIndex: 0, // gridRef.current.getDxInstance().pageIndex() ??
+    //   Ft_PageSize: gridRef.current.getDxInstance().pageSize() ?? 100, // configuration.MAX_PAGE_ITEMS, // gridRef.current.getDxInstance().pageSize() ?? ,
+    // });
+    // setLoad(false);
+    // gridRef?.current.setPageData(response);
+    // viewHistoryPopupRef?.current.show();
   };
 
   // =============================Toolbar====================================
@@ -449,11 +448,11 @@ export const CarInfo = forwardRef(({}: ICarInfoProps, ref: any) => {
         handleViewHistory={handleViewHistory}
       />
 
-      <PopupViewHistory
+      {/* <PopupViewHistory
         ref={viewHistoryPopupRef}
         visible={showViewHistoryPopup.visible}
         container={".dx-viewport"}
-      />
+      /> */}
     </>
   );
 });
