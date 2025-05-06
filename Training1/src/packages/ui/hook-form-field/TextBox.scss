@@ -1,0 +1,138 @@
+.dx-textbox.dx-state-readonly {
+  .dx-texteditor-input {
+    background-color: #e9ebf3 !important;
+  }
+}
+.hook-form-checkbox,
+.hook-form-textbox,
+.hook-form-datebox,
+.hook-form-numberbox,
+.hook-form-selectbox {
+  label {
+    height: 24px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+  }
+
+  .dx-selectbox-container
+    .dx-texteditor-container
+    .dx-texteditor-input-container
+    .dx-placeholder:before {
+    padding: 0px 8px !important;
+  }
+
+  .dx-invalid-message-content {
+    min-width: 100px;
+    padding: 0 !important;
+  }
+
+  .dx-texteditor-input[aria-readonly="true"] {
+    background-color: #e9ebf3 !important;
+  }
+
+  .dx-placeholder::before {
+    display: flex !important;
+    align-items: center !important;
+    height: 100%;
+    padding: 0px 8px !important;
+    font-size: 13px !important;
+  }
+
+  .dx-textbox {
+    height: 24px !important;
+  }
+
+  .dx-numberbox {
+    height: 24px !important;
+
+    input {
+      text-align: right !important;
+    }
+  }
+
+  .dx-tagbox.dx-texteditor-empty {
+    height: 24px !important;
+  }
+
+  .dx-tagbox.dx-editor-filled .dx-tag-container,
+  .dx-tagbox.dx-editor-outlined .dx-tag-container {
+    min-height: 24px !important;
+  }
+
+  .dx-tagbox:not(.dx-texteditor-empty) {
+    height: auto !important;
+  }
+
+  .dx-tag-content {
+    background-color: #eaf9f2;
+    color: #0e223d;
+  }
+}
+
+.dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled
+  .dx-texteditor-input,
+.dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined
+  .dx-texteditor-input,
+.dx-datebox:not(
+    .dx-texteditor-empty
+  ).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled
+  .dx-texteditor-input,
+.dx-datebox:not(
+    .dx-texteditor-empty
+  ).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined
+  .dx-texteditor-input {
+  padding-right: 0 !important;
+}
+
+.hook-form-textarea {
+  .dx-textarea {
+    // height: 48px;
+
+    .dx-texteditor-input-container {
+      margin: 0px !important;
+    }
+
+    textarea.dx-texteditor-input {
+      // background-color: red;
+      padding: 5px 8px !important;
+      font-size: 12px !important;
+    }
+
+    .dx-placeholder::before {
+      padding: 8px !important;
+    }
+  }
+}
+
+.dx-invalid-message > .dx-overlay-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  width: auto;
+}
+
+.dx-invalid-message:hover > .dx-overlay-content {
+  width: 300px !important;
+  text-overflow: unset;
+  overflow: unset;
+  transition: linear 0.5s all;
+}
+
+.align-right {
+  input {
+    text-align: right !important;
+  }
+}
+
+.dx-state-readonly {
+  .dx-checkbox-icon {
+    background-color: #e9ebf3 !important;
+  }
+}

@@ -1,0 +1,17 @@
+.date-range-field .dx-texteditor-container {
+  background-color: white;
+  border: 0.5px solid #5f7d95;
+  border-radius: 2px;
+}
+.date-range-field .dx-texteditor-container .dx-texteditor-input-container {
+  background-color: white;
+}
+.date-range-field .dx-texteditor-container .dx-texteditor-input-container .dx-placeholder {
+  top: -4px;
+}
+.date-range-field .dx-texteditor-container .dx-texteditor-input-container .dx-texteditor-input {
+  padding: 4px;
+}
+.date-range-field .dx-invalid-message.dx-overlay {
+  white-space: nowrap;
+}/*# sourceMappingURL=date-range-field.css.map */

@@ -1,0 +1,115 @@
+.text-field .dx-texteditor-container {
+  border: 0.5px solid #5f7d95;
+  border-radius: 3px;
+  background: #ffffff;
+  height: 30px;
+}
+.text-field
+  .dx-texteditor-container
+  .dx-texteditor-input-container
+  .dx-placeholder {
+  font-size: 14px;
+  color: #5f7d95;
+  font-weight: 400;
+}
+.text-field .dx-texteditor.dx-editor-filled {
+  background: #ffffff;
+}
+.text-field .dx-texteditor.dx-editor-filled .dx-texteditor-container {
+  border: 1px solid #5f7d95;
+}
+.text-field .dx-texteditor.dx-editor-filled:after {
+  border: none;
+}
+.text-field .dx-texteditor.dx-editor-filled:before {
+  border: none;
+}
+.text-field .dx-texteditor.dx-editor-filled.dx-state-hover {
+  background: #ffffff;
+}
+.text-field
+  .dx-texteditor.dx-editor-filled.dx-state-hover
+  .dx-texteditor-container {
+  border: 0.5px solid #5f7d95;
+}
+.text-field .dx-texteditor.dx-editor-filled.dx-state-readonly {
+  background: #f5f5f5 !important;
+}
+.text-field
+  .dx-texteditor.dx-editor-filled.dx-state-focused:not(:has(.dx-state-readonly))
+  .dx-texteditor-container {
+  border: 0.5px solid #00703c;
+}
+
+.dx-dropdowneditor.dx-texteditor {
+  border: none;
+  content: none;
+}
+.dx-dropdowneditor.dx-texteditor.dx-state-focused:before {
+  border: none;
+}
+.dx-dropdowneditor.dx-texteditor.dx-state-focused:after {
+  border: none;
+}
+.dx-dropdowneditor.dx-texteditor.dx-state-focused:not(:has(.dx-state-readonly))
+  .dx-texteditor-container {
+  border: 0.5px solid #00703c;
+}
+.dx-dropdowneditor .dx-selectbox-container .dx-texteditor-container {
+  border: 0.5px solid #5f7d95;
+}
+.dx-dropdowneditor:after {
+  border: none;
+}
+.dx-dropdowneditor:before {
+  border: none;
+}
+
+.dx-selectbox-container .dx-texteditor-container {
+  border: 1px solid #5f7d95;
+}
+.dx-selectbox-container .dx-texteditor-container[readonly="true"] {
+  background: #f5f5f5;
+}
+.dx-selectbox-container .dx-texteditor-container.dx-state-hover {
+  background: #ffffff;
+}
+.dx-selectbox-container
+  .dx-texteditor-container.dx-state-hover
+  .dx-texteditor-container {
+  border: 0.5px solid #5f7d95;
+}
+.dx-selectbox-container .dx-texteditor-container.dx-state-readonly {
+  background: #f5f5f5 !important;
+}
+.dx-selectbox-container
+  .dx-texteditor-container.dx-state-focused:not(:has(.dx-state-readonly))
+  .dx-texteditor-container {
+  border: 0.5px solid #00703c;
+}
+.dx-selectbox-container
+  .dx-texteditor-container
+  .dx-texteditor-input-container
+  .dx-placeholder {
+  padding: 0;
+  font-size: 14px;
+  color: #5f7d95;
+  font-weight: 400;
+}
+.dx-selectbox-container
+  .dx-texteditor-container
+  .dx-texteditor-input-container
+  .dx-placeholder:before {
+  padding-top: 6px !important;
+  padding-bottom: 8px !important;
+}
+
+.dx-texteditor.dx-editor-outlined {
+  box-shadow: none !important;
+}
+.dx-texteditor.dx-editor-outlined.dx-state-hover {
+  box-shadow: none !important;
+}
+.dx-texteditor.dx-editor-outlined.dx-state-focused {
+  border: solid 0.5px #00703c;
+} /*# sourceMappingURL=input.css.map */

@@ -1,0 +1,23 @@
+.PopupTimKiemChung {
+  .dx-popup-normal .dx-popup-content {
+    padding: 0px !important;
+  }
+
+  #GridviewOne {
+    max-height: 100% !important;
+  }
+}
+
+.popup-footer {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    height: 0.5px;
+    background-color: #dfdfdf;
+    width: calc(100% + 40px);
+  }
+}

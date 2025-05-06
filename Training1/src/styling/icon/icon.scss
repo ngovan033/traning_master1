@@ -1,0 +1,15 @@
+.icon_container {
+  // hover:bg-[#EAF9F2] p-[7px] cursor-pointer rounded-[3px] hover:shadow-md
+
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #eaf9f2;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    path {
+      fill: #00703c !important;
+    }
+  }
+}

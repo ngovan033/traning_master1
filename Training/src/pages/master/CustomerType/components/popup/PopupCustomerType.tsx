@@ -244,7 +244,7 @@ const PopupCustomerType = forwardRef(({ onRefetchData }: IProps, ref) => {
                 required: "Loại khách hàng không được để trống!",
               }}
             />
-          </div>  
+          </div>
 
           <div className="">
             <Controller

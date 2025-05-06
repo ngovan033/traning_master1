@@ -5,6 +5,7 @@ export const useCommonLocale = () => {
 
   const buttonLocale = {
     BUTTON_ADD: common("Add"),
+
     BUTTON_EXPORT_EXCEL: common("ExportExcel"),
     BUTTON_TOGGLE_COLUMN: common("ToggleColumn"),
     BUTTON_APPLY: common("Apply"),

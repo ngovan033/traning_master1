@@ -1,0 +1,16 @@
+.files-uploader {
+  transform: translateY(-10px);
+}
+.files-uploader .dx-button-has-text .dx-button-content {
+  background-color: #00703c;
+}
+.files-uploader .dx-button-has-text .dx-button-content:hover {
+  background-color: #09492b;
+}
+.files-uploader .dx-fileuploader-wrapper {
+  padding: 0;
+}
+.files-uploader .dx-fileuploader-input-wrapper::before {
+  padding-top: 0;
+  margin-top: 0;
+}/*# sourceMappingURL=uploadFile-field.css.map */

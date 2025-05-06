@@ -23,4 +23,5 @@ export interface Search_Ser_Cavity_Param extends Partial<SearchParam> {
   CavityType: string;
   IsActive: string;
   Status: string;
+  StatusUse?: string;
 }

@@ -1,0 +1,19 @@
+.PopupTimKiemXeChiaSe {
+  td[role="columnheader"] {
+    padding: 5px 13px !important;
+  }
+
+  .dx-datagrid-text-content {
+    font-size: 12px !important;
+  }
+
+  td[role="gridcell"] {
+    padding: 5px 13px !important;
+    // font-size: 10px !important;
+  }
+
+  .dx-datagrid .dx-datagrid-headers .dx-row td[role="gridcell"],
+  .dx-datagrid .dx-datagrid-rowsview .dx-row td[role="gridcell"] {
+    font-size: 11px !important;
+  }
+}

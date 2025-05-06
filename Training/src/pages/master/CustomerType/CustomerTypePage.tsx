@@ -12,7 +12,7 @@ import { GridViewOne } from "@/packages/ui/base-gridview/gridview-one";
 import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch";
 import { LinkCell } from "@/packages/ui/link-cell";
 import { useSetAtom } from "jotai";
-import { useRef } from "react"; 
+import { useRef } from "react";
 import { toast } from "react-toastify";
 import PopupCustomerType from "./components/popup/PopupCustomerType";
 
@@ -100,8 +100,6 @@ export const CustomerTypePage = () => {
       Ft_PageIndex: gridRef?.current?.getDxInstance().pageIndex() ?? 0,
       Ft_PageSize: gridRef?.current?.getPageSize(), // gridRef?.current?.getDxInstance().pageSize() ?? 100,
     });
-   
-    
     if (resp?.isSuccess) {
       return resp;
     } else {

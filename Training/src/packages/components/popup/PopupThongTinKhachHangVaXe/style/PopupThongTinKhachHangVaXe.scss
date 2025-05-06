@@ -1,0 +1,212 @@
+.PopupCapNhatThongTinKhachHangVaXe {
+  .layout-with-search-panel {
+    width: 100%;
+  }
+
+  .drawer-close {
+    .dx-drawer-left {
+      .base-gridview {
+        width: calc(100% - 150px) !important;
+        margin-left: 150px !important;
+      }
+    }
+  }
+
+  .dx-drawer-left {
+    .base-gridview {
+      width: 100% !important;
+      margin-left: 0px !important;
+    }
+  }
+
+  .dx-drawer-opened {
+    .base-gridview {
+      width: 100% !important;
+    }
+  }
+
+  .popup-footer {
+    position: absolute;
+    padding: 0 20px;
+    overflow: hidden;
+    z-index: 999;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -20px;
+      height: 0.5px;
+      background-color: #dfdfdf;
+      width: calc(100% + 40px);
+    }
+  }
+
+  .dx-popup-normal .dx-popup-title.dx-toolbar {
+    height: 30px !important;
+  }
+
+  .dx-toolbar-items-container {
+    height: 30px !important;
+  }
+
+  .dx-popup-title .dx-item-content.dx-toolbar-item-content {
+    font-size: 13px !important;
+  }
+
+  .dx-toolbar-after {
+    .dx-button {
+      height: 24px !important;
+      min-height: 24px !important;
+    }
+  }
+
+  .dx-popup-normal .dx-popup-content {
+    padding: 0px !important;
+    overflow-x: hidden !important;
+  }
+
+  .custom-tab-panel {
+    background-color: transparent;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: 0.5px;
+      background-color: #5f7d95;
+    }
+
+    .dx-tabs-wrapper {
+      background-color: transparent !important;
+    }
+
+    .dx-tabs {
+      background-color: transparent;
+      border: none;
+    }
+
+    .dx-tab {
+      padding: 5px 10px !important;
+      background-color: #fff;
+    }
+
+    .dx-tab-selected {
+      background-color: #eaf9f2;
+    }
+
+    .dx-tab-text {
+      font-size: 12px !important;
+      text-transform: none;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  .hook-form-checkbox .dx-textbox,
+  .hook-form-textbox .dx-textbox,
+  .hook-form-datebox .dx-textbox,
+  .hook-form-numberbox .dx-textbox,
+  .hook-form-selectbox .dx-textbox {
+    height: 19px !important;
+
+    input {
+      font-size: 12px !important;
+    }
+  }
+
+  .hook-form-checkbox .dx-numberbox,
+  .hook-form-textbox .dx-numberbox,
+  .hook-form-datebox .dx-numberbox,
+  .hook-form-numberbox .dx-numberbox,
+  .hook-form-selectbox .dx-numberbox {
+    height: 19px !important;
+
+    input {
+      font-size: 12px !important;
+    }
+  }
+
+  .hook-form-textbox label,
+  .hook-form-datebox label,
+  .hook-form-numberbox label,
+  .hook-form-selectbox label {
+    height: 19px !important;
+    font-size: 12px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+  }
+
+  .dx-placeholder {
+    font-size: 12px !important;
+  }
+
+  .collapse-header {
+    height: 24px !important;
+  }
+
+  .hook-form-checkbox label {
+    font-size: 12px !important;
+  }
+}
+
+.tab-lich-su {
+  .hook-form-checkbox .dx-textbox,
+  .hook-form-textbox .dx-textbox,
+  .hook-form-datebox .dx-textbox,
+  .hook-form-numberbox .dx-textbox,
+  .hook-form-selectbox .dx-textbox {
+    height: 24px !important;
+
+    input {
+      font-size: 12px !important;
+    }
+  }
+
+  .hook-form-checkbox .dx-numberbox,
+  .hook-form-textbox .dx-numberbox,
+  .hook-form-datebox .dx-numberbox,
+  .hook-form-numberbox .dx-numberbox,
+  .hook-form-selectbox .dx-numberbox {
+    height: 24px !important;
+
+    input {
+      font-size: 12px !important;
+    }
+  }
+
+  .hook-form-textbox label,
+  .hook-form-datebox label,
+  .hook-form-numberbox label,
+  .hook-form-selectbox label {
+    height: 24px !important;
+    font-size: 12px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+  }
+
+  .dx-placeholder {
+    font-size: 12px !important;
+  }
+
+  .collapse-header {
+    height: 24px !important;
+  }
+
+  .hook-form-checkbox label {
+    font-size: 12px !important;
+  }
+
+  #search-panel-left {
+    background-color: #5f7d95 !important;
+    .header-search-panel {
+      padding-left: 0px !important;
+    }
+  }
+}
