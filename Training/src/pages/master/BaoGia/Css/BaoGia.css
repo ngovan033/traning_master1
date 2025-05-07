@@ -1,0 +1,186 @@
+.container_form {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  justify-content: space-around;
+  margin-left: -20px;
+
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 24%;
+
+}
+
+.top-row {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.ro-row {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.required {
+  color: red;
+}
+
+.input {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.inputRo {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 250px;
+}
+
+.inputYC {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 145px;
+}
+
+.bold-input {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.btn-outline {
+  padding: 6px 12px;
+  border: 1px solid #007b8f;
+  background: white;
+  color: #007b8f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-search {
+  background: #006644;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.kiemtra-container {
+  display: flex;
+  /* align-items: center; */
+  gap: 5px;
+  flex-direction: column;
+}
+
+.kiemtra-label {
+  font-size: 14px;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+  float: left;
+}
+
+.kiemtra-select {
+  padding: 4px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+
+}
+
+.kiemtra-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.kiemtra-btn {
+  padding: 6px 12px;
+  border: 1px solid #2e7d32;
+  color: #2e7d32;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.kiemtra-btn:hover {
+  background-color: #e8f5e9;
+}
+
+.image-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.Foter_container {
+  width: calc(100% - 30px);
+  margin: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.left {
+  width: calc(100% - 100px);
+  margin: auto;
+  height: auto;
+
+
+}
+
+.right {
+  width: 30%;
+  height: auto;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.left_header {
+  width: 100%;
+  height: auto;
+
+}
+
+.inputDate {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 170px;
+}
+
+.form-date {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+
+}

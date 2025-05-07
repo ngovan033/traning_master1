@@ -1,3 +1,4 @@
+import { BaoGiaPage } from "@/pages/master/BaoGia/BaoGia";
 import { CustomerTypePage } from "@/pages/master/CustomerType/CustomerTypePage";
 import { DanhSachCuocHenPage } from "@/pages/master/DanhSachCuocHen/DanhSachCuocHenPage";
 import TaoMoiCuocHenPage from "@/pages/master/DanhSachCuocHen/TaoMoiCuocHen/TaoMoiCuocHen";
@@ -100,6 +101,15 @@ export const adminRoutes: RouteItem[] = [
     mainMenuKey: "admin",
     permissionCode: "",
     getPageElement: () => <ChitietnoPage />,
+    view: "DL",
+  },
+  {
+    key: "BaoGia", //Quản lý cuộc hẹn DL
+    path: "admin/BaoGia",
+    subMenuTitle: "Báo giá",
+    mainMenuKey: "admin",
+    permissionCode: "", //
+    getPageElement: () => <BaoGiaPage />,
     view: "DL",
   },
 ];
