@@ -27,6 +27,7 @@ interface TextBoxFieldProps {
   maskRules?: any;
   spacing?: string;
   isTrim?: boolean;
+  inputAttr?: any;
 }
 
 export const TextBoxField = ({
@@ -96,6 +97,7 @@ export const TextBoxField = ({
         maskInvalidMessage={maskInvalidMessage}
         maskRules={maskRules}
         readOnly={disabled}
+        inputAttr={ { style: { textAlign: "right" } }}
         {...rest}
         className={`w-full flex-grow ${cssClassInput}`}
         defaultValue={rest.value}

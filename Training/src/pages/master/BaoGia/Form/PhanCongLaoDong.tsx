@@ -10,7 +10,7 @@ export const PhanCongLaoDongPage = () => {
   const textBoxRef = useRef();
   const dataSource = [
     {
-      STT:1,
+      STT: 1,
       SerID: 1,
       SerCode: "",
       SerName: "",
@@ -25,7 +25,7 @@ export const PhanCongLaoDongPage = () => {
       Note: "",
     },
     {
-      STT:2,
+      STT: 2,
       SerID: 2,
       SerCode: "",
       SerName: "",
@@ -40,7 +40,7 @@ export const PhanCongLaoDongPage = () => {
       Note: "",
     },
     {
-      STT:3,
+      STT: 3,
       SerID: 3,
       SerCode: "",
       SerName: "",
@@ -55,7 +55,7 @@ export const PhanCongLaoDongPage = () => {
       Note: "",
     },
     {
-      STT:4,
+      STT: 4,
       SerID: 4,
       SerCode: "",
       SerName: "",
@@ -70,7 +70,7 @@ export const PhanCongLaoDongPage = () => {
       Note: "",
     },
     {
-      STT:5,
+      STT: 5,
       SerID: 5,
       SerCode: "",
       SerName: "",
@@ -122,7 +122,7 @@ export const PhanCongLaoDongPage = () => {
           defaultValue={data.LoaiDichVu}
           dataSource={["Sửa chữa", "Lắp đặt"]}
           onValueChanged={(e) => {
-            data.LoaiDichVu = e.value; 
+            data.LoaiDichVu = e.value;
           }}
         />
       ),
@@ -133,7 +133,7 @@ export const PhanCongLaoDongPage = () => {
       caption: "Đối tượng thanh toán",
       visible: true,
       columnIndex: 1,
-      editorType: "dxTextBox", 
+      editorType: "dxTextBox",
       cellRender: ({ data }) => (
         <SelectBox
           defaultValue={data.DoiTuongTT}

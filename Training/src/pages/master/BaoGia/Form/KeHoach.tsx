@@ -34,30 +34,24 @@ export const FooterPage = () => {
             <Item title="Điều khoản sửa chữa"></Item>
           </TabPanel>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            marginTop: "10px",
-          }}
-        >
-          <div className="form-date">
+        <div className="flex justify-around mt-[10px] gap-5">
+          <div className="form-date flex justify-between">
             <div className="ro-row">
               <label className="label">
                 Ngày vào xưởng <span className="required"></span>
               </label>
+              <label className="label">
+                Ngày DKGX <span className="required"></span>
+              </label>
+            </div>
+            <div className="w-[60%] flex flex-col justify-between">
               <DateBox
-                className="inputDate"
+                className="inputDate "
                 type="datetime"
                 defaultValue={new Date()}
                 displayFormat="dd/MM/yyyy HH:mm"
                 showClearButton={false}
               />
-            </div>
-            <div className="ro-row">
-              <label className="label">
-                Ngày DKGX <span className="required"></span>
-              </label>
               <DateBox
                 className="inputDate"
                 type="datetime"
@@ -68,11 +62,16 @@ export const FooterPage = () => {
             </div>
           </div>
 
-          <div className="form-date">
+          <div className="form-date flex justify-between">
             <div className="ro-row">
               <label className="label">
-                Ngày vào xưởng <span className="required"></span>
+                Bắt đầu SC <span className="required"></span>
               </label>
+              <label className="label">
+                Kết thúc SC<span className="required"></span>
+              </label>
+            </div>
+            <div className="w-[60%] flex flex-col justify-between">
               <DateBox
                 className="inputDate"
                 type="datetime"
@@ -80,11 +79,6 @@ export const FooterPage = () => {
                 displayFormat="dd/MM/yyyy HH:mm"
                 showClearButton={false}
               />
-            </div>
-            <div className="ro-row">
-              <label className="label">
-                Ngày DKGX <span className="required"></span>
-              </label>
               <DateBox
                 className="inputDate"
                 type="datetime"
@@ -95,11 +89,9 @@ export const FooterPage = () => {
             </div>
           </div>
 
-          <div className="form-date">
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
-              >
+          <div className="form-Nhap">
+            <div className="flex  gap-[8px] ">
+              <div className="flex flex-col gap-[16px]">
                 <label className="label">
                   Ghi chú DKGX <span className="required"></span>
                 </label>
@@ -108,7 +100,7 @@ export const FooterPage = () => {
                 </ButtonCommon>
               </div>
 
-              <div className="flex-grow">
+              <div className="flex-grow mt-[-10px]">
                 <Controller
                   name={"PlateNo"}
                   control={control}
@@ -118,7 +110,7 @@ export const FooterPage = () => {
                         field={field}
                         error={errors.PlateNo}
                         placeholder="Nhập"
-                        height="60px"
+                        height="70px"
                       />
                     );
                   }}
@@ -127,7 +119,7 @@ export const FooterPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-4 justify-start ml-3 ">
+        <div className="flex flex-wrap items-center gap-4 justify-start ml-3  ">
           <p className="text-sm font-medium text-gray-800 mr-4 ">
             Thông tin khác
           </p>
@@ -139,7 +131,7 @@ export const FooterPage = () => {
             "Thanh toán bằng thẻ",
             "Phản tu",
           ].map((labelText, index) => (
-            <div className="flex items-center gap-2" key={index}>
+            <div className="flex items-center ml-3 mt-1  gap-1" key={index}>
               <CheckBox className="align-middle" />
               <span className="text-sm text-gray-700 leading-none">
                 {labelText}
@@ -150,23 +142,25 @@ export const FooterPage = () => {
         </div>
       </div>
 
-      <div className="right">
+      <div className="right m-auto">
         <div className="flex gap-[5px] justify-between">
           <p className="text-sm  font-bold  text-gray-700">
             Tổng tiền trước thuế:
           </p>
-          <p className="text-xs text-black-900 font-bold   ">50.000.000</p>
+          <p className="text-xs text-black-900 font-bold mr-[12px]">
+            50.000.000
+          </p>
         </div>
         <div className="flex gap-[5px] font-bold  justify-between">
           <p className="text-sm  text-gray-700">Tổng tiền sau thuế:</p>
-          <p className="text-xs text-gray-900">50.500.000</p>
+          <p className="text-xs text-gray-900 mr-[12px]">50.500.000</p>
         </div>
         <div className="flex gap-[5px] font-bold  justify-between">
           <p className="text-sm  text-gray-700">Tiền sử dụng từ thẻ:</p>
-          <p className="text-xs text-gray-900">0</p>
+          <p className="text-xs text-gray-900 mr-[12px]">0</p>
         </div>
         <div className="flex items-center  justify-between font-bold ">
-          <div className="flex-grow ">
+          <div className="flex h-[20px]">
             <Controller
               name={"PlateNo"}
               control={control}
@@ -174,13 +168,14 @@ export const FooterPage = () => {
                 return (
                   <TextBoxField
                     field={{
-                      value: "",
+                      value: "0",
                     }}
                     label="Miễn thường/Chế tài"
                     error={errors.PlateNo}
                     showClearButton={false}
                     showPlaceholder={false}
-                    labelWidth="280px"
+                    labelWidth="330px"
+                    cssClassInput="input-right"
                   />
                 );
               }}
@@ -190,7 +185,7 @@ export const FooterPage = () => {
 
         <div className="flex gap-[5px] font-bold  justify-between">
           <p className="text-sm   text-gray-700">Tổng tiền cuối cùng:</p>
-          <p className="text-xs text-gray-900">10.000.000.000</p>
+          <p className="text-xs text-gray-900 mr-[12px]">10.000.000.000</p>
         </div>
       </div>
     </div>

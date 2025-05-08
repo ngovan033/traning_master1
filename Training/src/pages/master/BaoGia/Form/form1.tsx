@@ -5,48 +5,46 @@ export const Form1 = () => {
   return (
     <div className="container_form">
       <div className="form-section">
-        <div className="top-row">
-          <button className="btn-outline"># Báo giá ▼</button>
-          <div style={{ display: "flex", gap: "8px" }}>
-            <input type="text" placeholder="Nhập" className="input" />
-            <button className="btn-search">🔍</button>
+        <div className="top-row flex gap-[16px] items-center">
+          {/* Khối 1: Báo giá và RO */}
+          <div className="flex gap-[8px] flex-col justify-around">
+            <button className="btn-outline"># Báo giá ▼</button>
+            <label className="label">
+              Số RO <span className="required">*</span>
+            </label>
+          </div>
+
+          {/* Khối 2: Tìm kiếm */}
+          <div className="flex gap-[8px] flex-col">
+            <div className="flex gap-[8px] items-center">
+              <input type="text" placeholder="Nhập" className="input" />
+              <button className="btn-search">🔍</button>
+            </div>
+            <input
+              type="text"
+              value="BG-VS058.1-241003-002"
+              className="inputRo"
+            />
           </div>
         </div>
-
-        <div className="ro-row">
-          <label className="label">
-            Số RO <span className="required">*</span>
-          </label>
-          <input
-            type="text"
-            value="BG-VS058.1-241003-002"
-            className="inputRo"
-          />
-        </div>
       </div>
+
       <div className="form-section">
-        <div className="ro-row">
+        <div className="flex flex-col gap-[8px] justify-around">
           <label className="label">
             CvDV <span className="required"></span>
           </label>
+          <label className="label">
+            Số YC PDI <span className="required"></span>
+          </label>
+        </div>
+        <div className="ro-row">
           <input
             type="text"
             value="Nguyễn Thị Phương Linh"
             className="inputRo"
           />
-        </div>
-        <div className="ro-row">
-          <label className="label">
-            Số YC PDI <span className="required"></span>
-          </label>
-          <div
-            style={{
-              display: "flex",
-              gap: "8px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex gap-[8px] items-center">
             <input type="text" value="YC00000000000" className="inputYC" />
             <CheckBox />
             <label className="label">
