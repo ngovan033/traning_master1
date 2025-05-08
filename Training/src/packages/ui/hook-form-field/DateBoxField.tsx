@@ -22,6 +22,7 @@ interface DateBoxFieldProps {
   refHandle?: any;
   applyValueMode?: ApplyValueMode;
   props?: any;
+  showPlaceholder?: boolean;
 }
 
 export const DateBoxField = ({
@@ -38,6 +39,7 @@ export const DateBoxField = ({
   showAnalogClock = true,
   labelWidth = "110px",
   labelClass,
+  showPlaceholder = false,
   cssClass = "",
   spacing = "8px",
   applyValueMode = "instantly",

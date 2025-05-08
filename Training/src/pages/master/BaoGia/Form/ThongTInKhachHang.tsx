@@ -11,22 +11,21 @@ import { TextAreaField } from "@/packages/ui/hook-form-field/TextAreaField";
 import { TextBoxField } from "@/packages/ui/hook-form-field/TextBoxField";
 import SearchPrimaryIcon from "@/packages/ui/icons/svg/search-primary";
 import { format } from "date-fns";
+import { Button } from "devextreme-react";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import ChiTietPage from "../popup/ChiTietKH_Xe";
 
 export const ThongTinKhachHangPage = () => {
   const { commonLocale, requireLocale } = useCommonLocale();
   const { isHQ } = usePermissions();
   const isNPP = isHQ();
-
   const { Type } = useParams();
-
   const initAppDateTimeFrom = new Date();
-
   const dataSourceTTKHVX = useDataSource();
-
+  const popupRef = useRef();
   const findCustomerPopupRef = useRef();
   const findShareCarPopupRef = useRef();
   const customerPopupRef = useRef();
@@ -63,12 +62,27 @@ export const ThongTinKhachHangPage = () => {
       FlagSharedCar: "0",
     },
   });
-
+  const handleDetail = () => {
+    popupRef.current?.showPopup();
+  };
   return (
-    <form id="FormCuocHen" className="flex flex-col">
+    <form id="FormCuocHen" className="flex flex-col mt-[5px]">
       <CollapseHeader
         showCollapse={true}
-        title="Thông tin khách hàng và xe"
+        title={
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+              gap: "15px",
+            }}
+          >
+            <span>Thông tin khách hàng và xe</span>
+            <ButtonCommon onClick={handleDetail}>Chi tiết</ButtonCommon>{" "}
+            {/* Nút bạn muốn thêm */}
+          </div>
+        }
         render={
           <div className="flex flex-col">
             <div className="grid grid-cols-3 mx-[30px] gap-[75px] mt-[2px]  ">
@@ -391,7 +405,7 @@ export const ThongTinKhachHangPage = () => {
           </div>
         }
       ></CollapseHeader>
-
+     <ChiTietPage ref={popupRef} />
       <button
         hidden={true}
         ref={refSubmitButton}

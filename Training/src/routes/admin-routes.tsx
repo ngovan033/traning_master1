@@ -5,6 +5,7 @@ import TaoMoiCuocHenPage from "@/pages/master/DanhSachCuocHen/TaoMoiCuocHen/TaoM
 import TinhTrangKhoangHenPage from "@/pages/master/DanhSachCuocHen/TinhTrangKhoangHen/TinhTrangKhoangHen";
 import { DanhSachNoNhaCungCapPage } from "@/pages/master/DanhSachNoNhaCungCap/DanhSachNoNhaCungCapPage";
 import ChitietnoPage from "@/pages/master/DanhSachNoNhaCungCap/TaoMoiCuocHen/ChiTIetNoNhaCC";
+import { QuyetToanPage } from "@/pages/master/QuyetToan/QuyetToan";
 import { Ser_CavityPage } from "@/pages/master/SerCavity/list/Ser_Cavity";
 import { Ser_CustomerCar_CreateNew } from "@/pages/master/SerCustomer/create-new/create-new";
 import { Ser_CustomerCar } from "@/pages/master/SerCustomer/list/Ser_CustomerCar";
@@ -112,4 +113,13 @@ export const adminRoutes: RouteItem[] = [
     getPageElement: () => <BaoGiaPage />,
     view: "DL",
   },
+  // {
+  //   key: "QuyetToan", //Quản lý cuộc hẹn DL
+  //   path: "admin/QuyetToan",
+  //   subMenuTitle: "Quyết toán",
+  //   mainMenuKey: "admin",
+  //   permissionCode: "", //
+  //   getPageElement: () => <QuyetToanPage />,
+  //   view: "DL",
+  // },
 ];
