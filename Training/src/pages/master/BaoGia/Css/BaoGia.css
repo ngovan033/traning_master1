@@ -195,21 +195,22 @@
   gap: 8px;
 }
 
-.left {
+.left_kh {
   /* width: calc(100% - 100px); */
+
   margin: auto;
   height: auto;
   width: 70%;
 
 }
 
-.right {
+.right_kh {
   width: 30%;
   height: auto;
+
   gap: 10px;
   display: flex;
   flex-direction: column;
-  
   margin-top: 10px;
 }
 

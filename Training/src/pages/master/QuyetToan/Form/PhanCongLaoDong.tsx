@@ -230,7 +230,7 @@ export const PhanCongLaoDongPage = () => {
           <div className="flex items-center gap-[10px] w-full justify-around">
             <div className="flex items-center">
               <TextBox
-                width={200}
+                width="60%"
                 showClearButton
                 style={{
                   height: "24px",

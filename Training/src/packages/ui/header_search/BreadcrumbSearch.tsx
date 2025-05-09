@@ -2,6 +2,7 @@ import { useStylingCommon } from "@/packages/hooks/useStylingCommon";
 import ButtonCommon from "../button/ButtonCommon";
 import CreateIcon from "../icons/svg/create";
 import SearchIcon from "../icons/svg/search";
+import { useState } from "react";
 
 interface IListButton {
   icon?: JSX.Element;
@@ -39,6 +40,7 @@ interface IBreadcrumbSearchProps {
 
 const BreadcrumbSearch = ({
   title,
+  
   handleSearch,
   showSearch = true,
   buttonOptions = {
@@ -46,15 +48,21 @@ const BreadcrumbSearch = ({
   },
 }: IBreadcrumbSearchProps) => {
   const style = useStylingCommon();
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const [isLoading, setIsLoading] = useState(false); 
+  const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      if (isLoading) return; // Chặn spam khi loading
+
       const currentKeyword = event.currentTarget.value;
 
-      handleSearch?.(currentKeyword);
+      setIsLoading(true); // Bắt đầu loading
+      try {
+        await handleSearch?.(currentKeyword);
+      } finally {
+        setIsLoading(false); // Kết thúc loading
+      }
     }
   };
-
   return (
     <div className={style.HEADER_SEARCH.HEADER_SEARCH_CONTAINER}>
       <div className={style.HEADER_SEARCH.HEADER_SEARCH_TITLE}>{title}</div>

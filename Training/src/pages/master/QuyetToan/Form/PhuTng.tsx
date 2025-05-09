@@ -10,7 +10,7 @@ export const PhuTungPage = () => {
   const textBoxRef = useRef();
   const dataSource = [
     {
-      STT:1,
+      STT: 1,
       SerID: 1,
       SerCode: "",
       SerName: "",
@@ -26,7 +26,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:2,
+      STT: 2,
       SerID: 2,
       SerCode: "",
       SerName: "",
@@ -43,7 +43,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:3,
+      STT: 3,
       SerID: 3,
       SerCode: "",
       SerName: "",
@@ -60,7 +60,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:4,
+      STT: 4,
       SerID: 4,
       SerCode: "",
       SerName: "",
@@ -77,7 +77,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:5,
+      STT: 5,
       SerID: 5,
       SerCode: "",
       SerName: "",
@@ -236,7 +236,7 @@ export const PhuTungPage = () => {
           <div className="flex items-center gap-[10px] w-full justify-around">
             <div className="flex items-center">
               <TextBox
-                width={200}
+                width="60%"
                 showClearButton
                 style={{
                   height: "24px",

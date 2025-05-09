@@ -4,7 +4,7 @@ import { TextBoxField } from "@/packages/ui/hook-form-field/TextBoxField";
 import { CheckBox, DateBox, TabPanel } from "devextreme-react";
 import { Item } from "devextreme-react/tab-panel";
 import { Controller, useForm } from "react-hook-form";
-
+import "../Css/BaoGia.css";
 export const FooterPage = () => {
   const {
     register,
@@ -20,7 +20,7 @@ export const FooterPage = () => {
   } = useForm<any>({});
   return (
     <div className="Foter_container">
-      <div className="left">
+      <div className="left_kh">
         <div className="left_header">
           <TabPanel
             width="100%"
@@ -142,7 +142,7 @@ export const FooterPage = () => {
         </div>
       </div>
 
-      <div className="right m-auto">
+      <div className="right_kh">
         <div className="flex gap-[5px] justify-between">
           <p className="text-sm  font-bold  text-gray-700">
             Tổng tiền trước thuế:

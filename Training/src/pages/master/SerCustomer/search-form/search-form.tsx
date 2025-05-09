@@ -2,9 +2,10 @@ import { useI18n } from "@/i18n/useI18n";
 import { TextField } from "@/packages/components/text-field";
 import { useDialog } from "@/packages/hooks/useDiaglog";
 import { searchPanelVisibleAtom } from "@/packages/layouts/content-searchpanel-layout";
+import { loadPanelAtom } from "@/packages/store/loadPanel-store";
 import SearchPanelLeft from "@/packages/ui/search-panel/search-panel-left";
-import { useSetAtom } from "jotai";
-import { useEffect, useRef } from "react";
+import { useAtomValue, useSetAtom } from "jotai";
+import { useEffect, useRef, useState } from "react";
 
 interface SearchFormProps {
   data: any;
@@ -12,11 +13,14 @@ interface SearchFormProps {
 }
 
 const SearchForm = ({ data, onSearch }: SearchFormProps) => {
+
   const searchPanelRef = useRef<any>(null);
   const { t } = useI18n("Ser_CustomerCar");
   const setSearchPanelVisible = useSetAtom(searchPanelVisibleAtom);
+  const isLoading = useAtomValue(loadPanelAtom);
 
   const onEnterKey = () => {
+    if (isLoading) return; 
     searchPanelRef.current?.search();
   };
 
@@ -25,7 +29,7 @@ const SearchForm = ({ data, onSearch }: SearchFormProps) => {
       visible: true,
       dataField: "CusName",
       label: {
-        text: t("CusName"),
+        text: t("CusName"), 
       },
       render: (param: any) => {
         const { dataField, component: formComponent } = param;

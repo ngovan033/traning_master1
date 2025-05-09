@@ -249,7 +249,7 @@ export const PhuTungPage = () => {
                 ></ButtonCommon>
               </div>
             </div>
-            <div className="flex gap-[8px] ml-[-150px]">
+            <div className="flex gap-[8px] ml-[10px]">
               <ButtonCommon size="small">Xóa</ButtonCommon>
               <ButtonCommon size="small">Điền nhiều hàng</ButtonCommon>
             </div>
@@ -258,7 +258,7 @@ export const PhuTungPage = () => {
                 Tổng tiền:
               </label>
 
-              <div className="bg-[#f7f9fa] px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">
+              <div className="bg-[#f7f9fa]  px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">
                 20.000.000
               </div>
               <div className="bg-[#f7f9fa] px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">

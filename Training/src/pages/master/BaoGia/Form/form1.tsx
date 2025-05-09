@@ -38,7 +38,7 @@ export const Form1 = () => {
             Số YC PDI <span className="required"></span>
           </label>
         </div>
-        <div className="ro-row">
+        <div className="flex flex-col gap-[8px] justify-around">
           <input
             type="text"
             value="Nguyễn Thị Phương Linh"

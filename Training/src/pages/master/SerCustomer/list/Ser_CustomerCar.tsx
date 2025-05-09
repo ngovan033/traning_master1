@@ -16,7 +16,7 @@ import BreadcrumbSearch from "@/packages/ui/header_search/BreadcrumbSearch";
 import { ToolbarItemProps } from "@/types";
 import { DataGrid } from "devextreme-react";
 import { useSetAtom } from "jotai";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigationType } from "react-router-dom";
 import { toast } from "react-toastify";
 import { match } from "ts-pattern";
@@ -29,6 +29,7 @@ export const Ser_CustomerCar = () => {
   const navigate = useNetworkNavigate();
   const setLoad = useSetAtom(loadPanelAtom);
   const showError = useSetAtom(showErrorAtom);
+  const [isLoading, setIsLoading] = useState(false);
   let gridRef: any = useRef<DataGrid | null>(null);
   let searchCondition = useRef<Partial<SearchSer_CustomerCarParam>>({
     CusName: "",
