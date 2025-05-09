@@ -20,9 +20,11 @@ const ChiTietPage = forwardRef((_, ref) => {
     <Popup
       visible={open}
       showCloseButton={true}
-      height={"99%"}
+      height={"100%"}
       title={"Thông tin khách hàng và xe"}
       onHiding={() => setOpen(false)}
+      
+      // className="position-relative"
     >
       <TabPanel
         width="100%"
@@ -37,7 +39,7 @@ const ChiTietPage = forwardRef((_, ref) => {
       <ThongtinNguoiLienLacPage />
       <ThongtinxePopUp />
       <ThongTinBaoHiemPage />
-      <div className="flex gap-2 float-right">
+      <div className="fixed bottom-1 right-4 z-50 flex gap-2  p-2 rounded-xl">
         <ButtonCommon>Lưu</ButtonCommon>
         <ButtonCommon>Xóa</ButtonCommon>
         <ButtonCommon

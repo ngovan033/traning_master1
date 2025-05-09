@@ -113,13 +113,13 @@ export const adminRoutes: RouteItem[] = [
     getPageElement: () => <BaoGiaPage />,
     view: "DL",
   },
-  // {
-  //   key: "QuyetToan", //Quản lý cuộc hẹn DL
-  //   path: "admin/QuyetToan",
-  //   subMenuTitle: "Quyết toán",
-  //   mainMenuKey: "admin",
-  //   permissionCode: "", //
-  //   getPageElement: () => <QuyetToanPage />,
-  //   view: "DL",
-  // },
+  {
+    key: "QuyetToan", //Quản lý cuộc hẹn DL
+    path: "admin/QuyetToan",
+    subMenuTitle: "Quyết toán",
+    mainMenuKey: "admin",
+    permissionCode: "", //
+    getPageElement: () => <QuyetToanPage />,
+    view: "DL",
+  },
 ];
