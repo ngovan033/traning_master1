@@ -79,8 +79,17 @@ export const ThongTinKhachHangPage = () => {
             }}
           >
             <span>Thông tin khách hàng và xe</span>
-            <ButtonCommon onClick={handleDetail}>Chi tiết</ButtonCommon>{" "}
-            {/* Nút bạn muốn thêm */}
+            <ButtonCommon
+              onClick={handleDetail}
+           
+             
+            >
+              <img
+                src="/images/settings.png"
+                alt="Chi tiết"
+                className="w-[30px] h-[20px] object-contain"
+              />
+            </ButtonCommon>
           </div>
         }
         render={
@@ -405,7 +414,7 @@ export const ThongTinKhachHangPage = () => {
           </div>
         }
       ></CollapseHeader>
-     <ChiTietPage ref={popupRef} />
+      <ChiTietPage ref={popupRef} />
       <button
         hidden={true}
         ref={refSubmitButton}

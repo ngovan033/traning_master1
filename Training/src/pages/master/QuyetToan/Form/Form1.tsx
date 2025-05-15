@@ -1,5 +1,7 @@
 import { CheckBox, SelectBox } from "devextreme-react";
 import "../Css/QuyetToan.css";
+import ButtonCommon from "@/packages/ui/button/ButtonCommon";
+import SearchPrimaryIcon from "@/packages/ui/icons/svg/search-primary";
 
 export const Form1 = () => {
   return (
@@ -19,7 +21,10 @@ export const Form1 = () => {
           <div className="flex gap-[8px] flex-col">
             <div className="flex gap-[8px] items-center">
               <input type="text" placeholder="Nhập" className="input" />
-              <button className="btn-search">🔍</button>
+              <ButtonCommon
+                icon={<SearchPrimaryIcon />}
+                size="small"
+              ></ButtonCommon>
             </div>
           </div>
         </div>

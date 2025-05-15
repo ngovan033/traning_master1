@@ -10,7 +10,7 @@ export const PhuTungPage = () => {
   const textBoxRef = useRef();
   const dataSource = [
     {
-      STT:1,
+      STT: 1,
       SerID: 1,
       SerCode: "",
       SerName: "",
@@ -26,7 +26,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:2,
+      STT: 2,
       SerID: 2,
       SerCode: "",
       SerName: "",
@@ -43,7 +43,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:3,
+      STT: 3,
       SerID: 3,
       SerCode: "",
       SerName: "",
@@ -60,7 +60,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:4,
+      STT: 4,
       SerID: 4,
       SerCode: "",
       SerName: "",
@@ -77,7 +77,7 @@ export const PhuTungPage = () => {
       Note: "",
     },
     {
-      STT:5,
+      STT: 5,
       SerID: 5,
       SerCode: "",
       SerName: "",
@@ -169,9 +169,18 @@ export const PhuTungPage = () => {
       dataField: "DonGia",
       caption: "Đơn giá",
       visible: true,
+      width:120,
       columnIndex: 1,
       editorType: "dxTextBox",
-      cellRender: ({ data }) => <TextBox defaultValue={data.DonGia} />,
+      cellRender: ({ data }) => (
+        <TextBox
+          defaultValue={
+            data.DonGia != null
+              ? new Intl.NumberFormat("vi-VN").format(data.DonGia)
+              : ""
+          }
+        />
+      ),
     },
     {
       dataField: "ThanhTien",
@@ -179,8 +188,17 @@ export const PhuTungPage = () => {
       visible: true,
       columnIndex: 1,
       editorType: "dxTextBox",
-      // cellRender: ({ data }) => <TextBox defaultValue={data.ThanhTien} />,
+      cellRender: ({ data }) => (
+        <TextBox
+          defaultValue={
+            data.ThanhTien != null
+              ? new Intl.NumberFormat("vi-VN").format(data.ThanhTien)
+              : ""
+          }
+        />
+      ),
     },
+
     {
       dataField: "Thue",
       caption: "Thuế(%)",
@@ -234,7 +252,7 @@ export const PhuTungPage = () => {
         }
         headerRender={
           <div className="flex items-center gap-[10px] w-full justify-around">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <TextBox
                 width={200}
                 showClearButton
@@ -248,11 +266,10 @@ export const PhuTungPage = () => {
                   size="small"
                 ></ButtonCommon>
               </div>
-            </div>
-            <div className="flex gap-[8px] ml-[10px]">
               <ButtonCommon size="small">Xóa</ButtonCommon>
               <ButtonCommon size="small">Điền nhiều hàng</ButtonCommon>
             </div>
+
             <div className="flex items-center gap-[8px]">
               <label className="font-semibold text-[14px] text-[#1e2c50]">
                 Tổng tiền:

@@ -21,7 +21,7 @@ const ThongTInKhachHangPopup = () => {
     formState: { errors },
   } = useForm<any>({});
   return (
-    <CollapseHeader
+    <CollapseHeader 
       showCollapse={false}
       title={
         <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -97,7 +97,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -118,7 +118,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -159,7 +159,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -181,7 +181,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -202,7 +202,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -223,7 +223,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -268,7 +268,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -290,7 +290,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -311,7 +311,7 @@ const ThongTInKhachHangPopup = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (

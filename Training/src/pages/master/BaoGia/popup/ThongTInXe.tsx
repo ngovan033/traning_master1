@@ -53,7 +53,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -75,7 +75,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -96,7 +96,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -115,7 +115,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -134,7 +134,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -175,7 +175,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -215,7 +215,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -236,7 +236,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -281,7 +281,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -303,7 +303,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -324,7 +324,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -347,7 +347,7 @@ const ThongtinxePopUp = () => {
               <div className="flex items-center gap-[5px] justify-between">
                 <div className="flex-grow">
                   <Controller
-                    name={"PlateNo"}
+                    name={""}
                     control={control}
                     render={({ field }) => {
                       return (

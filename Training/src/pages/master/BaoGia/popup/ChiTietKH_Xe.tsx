@@ -15,7 +15,9 @@ const ChiTietPage = forwardRef((_, ref) => {
       setOpen(true);
     },
   }));
-
+  const closePopup = () =>{
+    setOpen(false)
+  }
   return (
     <Popup
       visible={open}
@@ -49,6 +51,7 @@ const ChiTietPage = forwardRef((_, ref) => {
             border: "1px solid black",
             borderRadius: "5px",
           }}
+          onClick={closePopup}
         >
           Đóng
         </ButtonCommon>

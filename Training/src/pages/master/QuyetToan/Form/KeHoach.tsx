@@ -20,34 +20,44 @@ export const FooterPage = () => {
   } = useForm<any>({});
   return (
     <div className="Foter_container">
-      <div className="left grid grid-cols-1  px-2 py-2  rounded mt-2 justify-around">
-        {/* Cột trái: TG giao xe thực tế */}
-        <div className=" space-y-2 w-[100%] ">
+      <div className="left grid grid-cols-1 px-2 py-2 rounded mt-2">
+        <div className="space-y-2 w-full">
           <p className="font-semibold text-[15px] text-gray-800">
             TG giao xe thực tế
           </p>
-          <div className="flex gap-[30px]">
-            <div className="flex items-center gap-3">
-              <label className="w-[30px] text-sm text-gray-700">Ngày</label>
-              <input className="w-[110px] h-[25px] px-2 py-1 border border-gray-300 rounded text-sm" />
+
+          {/* Nhóm ngày + thời gian */}
+          <div className="flex items-center flex-wrap gap-x-4 gap-y-2">
+            {/* Ngày */}
+            <div className="flex items-center gap-1 shrink-0">
+              <label className="text-sm text-gray-700 w-[35px]">Ngày</label>
+              <input
+                className="h-[26px] px-2 py-1 border border-gray-300 rounded text-sm 
+                     w-[80px] md:w-[110px]"
+              />
             </div>
 
-            <div className="flex items-center gap-2">
-              <label className="w-[80px] text-sm text-gray-700">
+            {/* Thời gian */}
+            <div className="flex items-center gap-1 shrink-0">
+              <label className="text-sm text-gray-700 w-[65px]">
                 Thời gian
               </label>
               <input
                 type="text"
-                className="w-[100px] h-[25px]  p px-2 py-1 border border-gray-300 rounded text-sm"
+                className="h-[26px] px-2 py-1 border border-gray-300 rounded text-sm 
+                     w-[70px] md:w-[100px]"
               />
-              <label className="w-[20px] text-sm text-gray-700">Giờ</label>
+              <label className="text-sm text-gray-700">Giờ</label>
               <input
                 type="text"
-                className="w-[70px] h-[25px]  p px-2 py-1 border border-gray-300 rounded text-sm"
+                className="h-[26px] px-2 py-1 border border-gray-300 rounded text-sm 
+                     w-[55px] md:w-[70px]"
               />
             </div>
           </div>
-          <div className="flex items-center gap-2 pt-1">
+
+          {/* Checkbox */}
+          <div className="flex items-start gap-2 pt-1">
             <input type="checkbox" id="check-paid" />
             <label htmlFor="check-paid" className="text-sm text-gray-700">
               Khách hàng thanh toán toàn bộ chi phí S/C

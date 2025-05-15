@@ -165,7 +165,15 @@ export const PhanCongLaoDongPage = () => {
       visible: true,
       columnIndex: 1,
       editorType: "dxTextBox",
-      cellRender: ({ data }) => <TextBox defaultValue={data.DonGia} />,
+      cellRender: ({ data }) => (
+        <TextBox
+          defaultValue={
+            data.DonGia != null
+              ? new Intl.NumberFormat("vi-VN").format(data.DonGia)
+              : ""
+          }
+        />
+      ),
     },
     {
       dataField: "ThanhTien",
@@ -173,7 +181,15 @@ export const PhanCongLaoDongPage = () => {
       visible: true,
       columnIndex: 1,
       editorType: "dxTextBox",
-      cellRender: ({ data }) => <TextBox defaultValue={data.ThanhTien} />,
+      cellRender: ({ data }) => (
+        <TextBox
+          defaultValue={
+            data.ThanhTien != null
+              ? new Intl.NumberFormat("vi-VN").format(data.ThanhTien)
+              : ""
+          }
+        />
+      ),
     },
     {
       dataField: "Thue",
@@ -228,7 +244,7 @@ export const PhanCongLaoDongPage = () => {
         }
         headerRender={
           <div className="flex items-center gap-[10px] w-full justify-around">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <TextBox
                 width={200}
                 showClearButton
@@ -242,17 +258,16 @@ export const PhanCongLaoDongPage = () => {
                   size="small"
                 ></ButtonCommon>
               </div>
-            </div>
-            <div className="flex gap-[8px] ml-[-150px]">
               <ButtonCommon size="small">Xóa</ButtonCommon>
               <ButtonCommon size="small">Điền nhiều hàng</ButtonCommon>
             </div>
+
             <div className="flex items-center gap-[8px]">
               <label className="font-semibold text-[14px] text-[#1e2c50]">
                 Tổng tiền:
               </label>
 
-              <div className="bg-[#f7f9fa] px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">
+              <div className="bg-[#f7f9fa]  px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">
                 20.000.000
               </div>
               <div className="bg-[#f7f9fa] px-[8px] py-[2px] border rounded-[4px] min-w-[100px] text-right font-semibold text-[#1e2c50]">

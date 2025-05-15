@@ -15,7 +15,6 @@
   min-width: 240px;
   max-width: 25%;
   display: flex;
-
   gap: 8px;
   box-sizing: border-box;
 }
@@ -114,7 +113,7 @@
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
-  width: 100%;
+  width: 110px !important;
   min-width: 0;
   text-overflow: ellipsis;
   overflow: hidden;

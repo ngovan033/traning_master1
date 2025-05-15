@@ -35,8 +35,8 @@ export const FooterPage = () => {
           </TabPanel>
         </div>
         <div className="flex justify-around mt-[10px] gap-5">
-          <div className="form-date flex justify-between">
-            <div className="ro-row">
+          <div className="form-date flex justify-around">
+            <div className=" flex flex-col justify-between mt-[5px]">
               <label className="label">
                 Ngày vào xưởng <span className="required"></span>
               </label>
@@ -62,8 +62,8 @@ export const FooterPage = () => {
             </div>
           </div>
 
-          <div className="form-date flex justify-between">
-            <div className="ro-row">
+          <div className="form-date flex justify-around">
+            <div className="flex flex-col justify-between mt-[5px]">
               <label className="label">
                 Bắt đầu SC <span className="required"></span>
               </label>
@@ -119,8 +119,8 @@ export const FooterPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-4 justify-start ml-3  ">
-          <p className="text-sm font-medium text-gray-800 mr-4 ">
+        <div className="flex flex-wrap items-start gap-x-4 gap-y-2">
+          <p className="text-sm font-medium text-gray-800 w-full md:w-auto">
             Thông tin khác
           </p>
 
@@ -131,11 +131,10 @@ export const FooterPage = () => {
             "Thanh toán bằng thẻ",
             "Phản tu",
           ].map((labelText, index) => (
-            <div className="flex items-center ml-3 mt-1  gap-1" key={index}>
+            <div className="flex items-center gap-1" key={index}>
               <CheckBox className="align-middle" />
               <span className="text-sm text-gray-700 leading-none">
                 {labelText}
-                <span className="required"></span>
               </span>
             </div>
           ))}

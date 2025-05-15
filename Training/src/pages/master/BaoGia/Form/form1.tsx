@@ -1,14 +1,16 @@
-import { CheckBox } from "devextreme-react";
+import { CheckBox, SelectBox } from "devextreme-react";
 import "../Css/BaoGia.css";
+import ButtonCommon from "@/packages/ui/button/ButtonCommon";
+import SearchPrimaryIcon from "@/packages/ui/icons/svg/search-primary";
 
 export const Form1 = () => {
   return (
     <div className="container_form">
       <div className="form-section">
-        <div className="top-row flex gap-[16px] items-center">
+        <div className="top-row flex gap-[16px] items-center w-full ">
           {/* Khối 1: Báo giá và RO */}
-          <div className="flex gap-[8px] flex-col justify-around">
-            <button className="btn-outline"># Báo giá ▼</button>
+          <div className="flex gap-[8px] flex-col justify-around ">
+            <SelectBox placeholder="# Báo giá" className="btn-outline"></SelectBox>
             <label className="label">
               Số RO <span className="required">*</span>
             </label>
@@ -18,7 +20,10 @@ export const Form1 = () => {
           <div className="flex gap-[8px] flex-col">
             <div className="flex gap-[8px] items-center">
               <input type="text" placeholder="Nhập" className="input" />
-              <button className="btn-search">🔍</button>
+              <ButtonCommon
+                icon={<SearchPrimaryIcon />}
+                size="small"
+              ></ButtonCommon>
             </div>
             <input
               type="text"
